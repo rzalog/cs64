@@ -35,7 +35,7 @@ module blinky_led(clk, rst, led);
 		end
 		
 		//if (a == 32'b00000101111101011110000100000000) begin
-		if (a == 32'd100_000_000) begin
+		if (a == 32'd50_000_000) begin
 			led <= ~led;
 			a <= 32'b0;
 		end
