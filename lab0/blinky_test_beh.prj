@@ -1,0 +1,3 @@
+verilog work "blinky_led.v"
+verilog work "blinky_test.v"
+verilog work "C:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v"

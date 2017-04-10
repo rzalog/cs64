@@ -1,0 +1,28 @@
+Command line:
+   blinky_test_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  51474
+
+Mon Apr 10 10:42:59 2017
+
+
+ Elaboration Time: 0.0468 sec
+
+ Current Memory Usage: 829.305 Meg
+
+ Total Signals          : 16
+ Total Nets             : 16
+ Total Signal Drivers   : 8
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 13
+ Total Traceable Variables  : 22
+ Total Scalar Nets and Variables : 131
+
+ Total Simulation Time: 0.140401 sec
+
+ Current Memory Usage: 1143.88 Meg
+
+Mon Apr 10 10:43:45 2017
+
