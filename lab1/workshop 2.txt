@@ -1,0 +1,7 @@
+An easier way to load sequencer program
+
+1. Identify part of tb.v:
+	All the lines that say "tskRun..."
+2. Which user tasks?
+	All the "tskRun..."s
+

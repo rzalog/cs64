@@ -1,0 +1,9 @@
+* PUSH R0 0x4 -> 00 00 01 00
+* PUSH R0 0x0 -> 00 00 00 00
+* PUSH R1 0x3 -> 00 01 00 11
+* MULT R0 R1 R2 -> 10 00 01 10
+* ADD R2 R0 R3 -> 01 10 00 11
+* SEND R0 -> 11 00 xx xx
+* SEND R1 -> 11 01 xx xx
+* SEND R2 -> 11 10 xx xx
+* SEND R3 -> 11 11 xx xx
