@@ -21,12 +21,8 @@ module tb;
    // End of automatics
 
    initial
-     begin
-        //$shm_open  ("dump", , ,1);
-        //$shm_probe (tb, "ASTF");
-		
-		//fd = $fopen("C:\Users\152\Desktop\cs64\lab1\seq.code");
-		//$readmemb("C:\Users\152\Desktop\cs64\lab1\seq.code", instructions);
+     begin		
+		$readmemb("seq.code", instructions);
 		
         clk = 0;
         btnR = 1;
@@ -34,20 +30,20 @@ module tb;
         #1000 btnR = 0;
         #1500000;
         
-//		num_loops = instructions[0];
-//		for (i = 0; i < num_loops; i = i+1'b1) begin
-//			tskRunInst(instructions[i+1'b1]);
-//		end
+		num_loops = instructions[0];
+		for (i = 0; i < num_loops; i = i+1'b1) begin
+			tskRunInst(instructions[i+1'b1]);
+		end
 		
-         tskRunPUSH(0,4);
-         tskRunPUSH(0,0);
-         tskRunPUSH(1,3);
-         tskRunMULT(0,1,2);
-         tskRunADD(2,0,3);
-         tskRunSEND(0);
-         tskRunSEND(1);
-         tskRunSEND(2);
-         tskRunSEND(3);
+//         tskRunPUSH(0,4);
+//         tskRunPUSH(0,0);
+//         tskRunPUSH(1,3);
+//         tskRunMULT(0,1,2);
+//         tskRunADD(2,0,3);
+//         tskRunSEND(0);
+//         tskRunSEND(1);
+//         tskRunSEND(2);
+//         tskRunSEND(3);
         
         #1000;
 			//$fclose();
@@ -85,7 +81,7 @@ module tb;
          #1500000 btnS = 1;
          #3000000 btnS = 0;
       end
-   endtask //
+   endtask
 
    task tskRunPUSH;
       input [1:0] ra;

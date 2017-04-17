@@ -10,7 +10,7 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Apr 12 10:15:26 2017
+Mapped Date    : Mon Apr 17 11:26:56 2017
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 INFO:Security:54 - 'xc6slx16' is a WebPack part.
@@ -29,13 +29,13 @@ Total REAL time at the beginning of Placer: 7 secs
 Total CPU  time at the beginning of Placer: 5 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:127660be) REAL time: 9 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:127660be) REAL time: 8 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:127660be) REAL time: 9 secs 
+Phase 2.7  Design Feasibility Check (Checksum:127660be) REAL time: 8 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:127660be) REAL time: 9 secs 
+Phase 3.31  Local Placement Optimization (Checksum:127660be) REAL time: 8 secs 
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 
@@ -57,10 +57,10 @@ Phase 8.5  Local Placement Optimization (Checksum:dc3f9c76) REAL time: 10 secs
 Phase 9.8  Global Placement
 .............................
 ..........
-Phase 9.8  Global Placement (Checksum:2f2955f0) REAL time: 11 secs 
+Phase 9.8  Global Placement (Checksum:2f2955f0) REAL time: 10 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:2f2955f0) REAL time: 11 secs 
+Phase 10.5  Local Placement Optimization (Checksum:2f2955f0) REAL time: 10 secs 
 
 Phase 11.18  Placement Optimization
 Phase 11.18  Placement Optimization (Checksum:9bbc3ba6) REAL time: 11 secs 
@@ -152,7 +152,7 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                4.51
 
-Peak Memory Usage:  368 MB
+Peak Memory Usage:  370 MB
 Total REAL time to MAP completion:  12 secs 
 Total CPU time to MAP completion:   9 secs 
 
