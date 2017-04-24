@@ -25,13 +25,19 @@ module count_and_extract(sign_mag, exp, sig, fifth);
 	output [3:0] sig;
 	output fifth;
 	
-	// Priority encoder (TEST THIS!)
-	assign exp = (sign_mag[11]) ? 0 :
+	assign sign_mag[11] = 1'b0;
+	
+	// Priority encoder
+	assign exp = 0-((sign_mag[11]) ? 0 :
 		(sign_mag[10]) ? 1 :
 		(sign_mag[9]) ? 2 :
 		(sign_mag[8]) ? 3 :
 		(sign_mag[7]) ? 4 :
 		(sign_mag[6]) ? 5 :
-		(sign_mag[5]) ? 6 : 7;
+		(sign_mag[5]) ? 6 : 
+	   (sign_mag[4]) ? 7 : 8);
+		
+	assign sig = sign_mag[exp +: 4];
+	assign fifth = (exp != 0) ? sign_mag[exp - 1] : 0;
 
 endmodule

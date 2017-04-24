@@ -1,0 +1,28 @@
+Command line:
+   rounder_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  51897
+
+Mon Apr 24 11:40:54 2017
+
+
+ Elaboration Time: 0.0468 sec
+
+ Current Memory Usage: 828.293 Meg
+
+ Total Signals          : 22
+ Total Nets             : 38
+ Total Signal Drivers   : 12
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 14
+ Total Traceable Variables  : 21
+ Total Scalar Nets and Variables : 126
+
+ Total Simulation Time: 0.0624 sec
+
+ Current Memory Usage: 828.293 Meg
+
+Mon Apr 24 11:41:07 2017
+
