@@ -41,63 +41,17 @@ module count_extract_tb;
 	);
 
 	initial begin
-		// Initialize Inputs
+		// Test one leading zero
 		sign_mag = 12'b011110111111;
-
-		// Wait 100 ns for global reset to finish
 		#100;
+		
+		// Test two leading zeros
 		sign_mag = 12'b001111111111;
-
-		// Wait 100 ns for global reset to finish
 		#100;
 		
+		// Test nine (more than eight) leading zeros
 		sign_mag = 12'b000000000111;
-
-		// Wait 100 ns for global reset to finish
 		#100;
-		
-//		sign_mag = 12'b000011111111;
-//
-//		// Wait 100 ns for global reset to finish
-//		#100;
-//		
-//		sign_mag = 12'b000001111111;
-//
-//		// Wait 100 ns for global reset to finish
-//		#100;
-//		
-//		sign_mag = 12'b000000111111;
-//
-//		// Wait 100 ns for global reset to finish
-//		#100;
-//		
-//		sign_mag = 12'b000000011111;
-//
-//		// Wait 100 ns for global reset to finish
-//		#100;
-//        
-//		// Add stimulus here
-//		
-//		sign_mag = 12'b000000001111;
-//
-//		// Wait 100 ns for global reset to finish
-//		#100;
-//		
-//		sign_mag = 12'b000000000111;
-//
-//		// Wait 100 ns for global reset to finish
-//		#100;
-//		
-//		sign_mag = 12'b000000000011;
-//
-//		// Wait 100 ns for global reset to finish
-//		#100;
-//		
-//		sign_mag = 12'b000000000001;
-//
-//		// Wait 100 ns for global reset to finish
-//		#100;
-
 	end
       
 endmodule

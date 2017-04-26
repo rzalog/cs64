@@ -44,15 +44,24 @@ module rounder_tb;
 
 	initial begin
 		exp = 3'b011;
-		sig = 4'b0101;
+		sig = 4'b1111;
 		fifth = 1;
-
 		#100;
 
 		exp = 3'b011;
 		sig = 4'b1111;
-		fifth = 1;		
+		fifth = 0;		
+		#100;
+		
+		exp = 3'b101;
+		sig = 4'b1011;
+		fifth = 1;
+		#100;
 
+		exp = 3'b111;
+		sig = 4'b1111;
+		fifth = 1;
+		#100;
 	end
       
 endmodule

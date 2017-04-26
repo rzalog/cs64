@@ -21,54 +21,54 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/152/cs64/lab2/lab2/count_extract_tb.v";
-static unsigned int ng1[] = {1983U, 0U};
-static unsigned int ng2[] = {1023U, 0U};
-static unsigned int ng3[] = {7U, 0U};
+static const char *ng0 = "C:/Users/152/cs64/lab2/lab2/twos_to_sign_tb.v";
+static unsigned int ng1[] = {3626U, 0U};
+static unsigned int ng2[] = {1578U, 0U};
+static unsigned int ng3[] = {2049U, 0U};
 
 
 
-static void Initial_43_0(char *t0)
+static void Initial_41_0(char *t0)
 {
     char *t1;
     char *t2;
     char *t3;
 
-LAB0:    t1 = (t0 + 2688U);
+LAB0:    t1 = (t0 + 2528U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(43, ng0);
+LAB2:    xsi_set_current_line(41, ng0);
 
-LAB4:    xsi_set_current_line(45, ng0);
+LAB4:    xsi_set_current_line(42, ng0);
     t2 = ((char*)((ng1)));
-    t3 = (t0 + 1768);
+    t3 = (t0 + 1608);
     xsi_vlogvar_assign_value(t3, t2, 0, 0, 12);
-    xsi_set_current_line(46, ng0);
-    t2 = (t0 + 2496);
+    xsi_set_current_line(43, ng0);
+    t2 = (t0 + 2336);
     xsi_process_wait(t2, 100000LL);
     *((char **)t1) = &&LAB5;
 
 LAB1:    return;
-LAB5:    xsi_set_current_line(49, ng0);
+LAB5:    xsi_set_current_line(45, ng0);
     t2 = ((char*)((ng2)));
-    t3 = (t0 + 1768);
+    t3 = (t0 + 1608);
     xsi_vlogvar_assign_value(t3, t2, 0, 0, 12);
-    xsi_set_current_line(50, ng0);
-    t2 = (t0 + 2496);
+    xsi_set_current_line(46, ng0);
+    t2 = (t0 + 2336);
     xsi_process_wait(t2, 100000LL);
     *((char **)t1) = &&LAB6;
     goto LAB1;
 
-LAB6:    xsi_set_current_line(53, ng0);
+LAB6:    xsi_set_current_line(48, ng0);
     t2 = ((char*)((ng3)));
-    t3 = (t0 + 1768);
+    t3 = (t0 + 1608);
     xsi_vlogvar_assign_value(t3, t2, 0, 0, 12);
-    xsi_set_current_line(54, ng0);
-    t2 = (t0 + 2496);
+    xsi_set_current_line(49, ng0);
+    t2 = (t0 + 2336);
     xsi_process_wait(t2, 100000LL);
     *((char **)t1) = &&LAB7;
     goto LAB1;
@@ -78,9 +78,9 @@ LAB7:    goto LAB1;
 }
 
 
-extern void work_m_00000000003970916562_4026259977_init()
+extern void work_m_00000000003219307592_3153785061_init()
 {
-	static char *pe[] = {(void *)Initial_43_0};
-	xsi_register_didat("work_m_00000000003970916562_4026259977", "isim/count_extract_tb_isim_beh.exe.sim/work/m_00000000003970916562_4026259977.didat");
+	static char *pe[] = {(void *)Initial_41_0};
+	xsi_register_didat("work_m_00000000003219307592_3153785061", "isim/twos_to_sign_tb_isim_beh.exe.sim/work/m_00000000003219307592_3153785061.didat");
 	xsi_register_executes(pe);
 }

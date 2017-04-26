@@ -29,18 +29,26 @@ module twos_to_sign_tb;
 
 	// Outputs
 	wire [11:0] sign_mag;
+	wire sign;
 
 	// Instantiate the Unit Under Test (UUT)
 	twos_to_sign uut (
 		.twos(twos), 
-		.sign_mag(sign_mag)
+		.sign_mag(sign_mag),
+		.sign(sign)
 	);
 
 	initial begin
+		// Test a negative number
 		twos = 12'b111000101010;
 		#100;
 
+		// Test a positive number
 		twos = 12'b011000101010;
+		#100;
+		
+		// Test another negative number
+		twos = 12'b100000000001;
 		#100;
 	end
       
