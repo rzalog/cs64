@@ -40,6 +40,10 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="compression_map.mrp" xil_pn:subbranch="Map"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="compression_ngdbuild.xrpt"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="compression_summary.html"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="compression_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="compression_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="compression_tb_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="compression_tb_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="compression_xst.xrpt"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="count_and_extract_isim_beh.exe"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="count_extract_tb_isim_beh.exe"/>
@@ -50,6 +54,9 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="rounder_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="rounder_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="rounder_tb_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tbS_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tbS_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="tbS_isim_beh.wdb"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="twos_to_sign_isim_beh.exe"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="twos_to_sign_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
@@ -59,18 +66,16 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1493059248" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1493059248">
+    <transform xil_pn:end_ts="1493228005" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1493228005">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1493059249" xil_pn:in_ck="-2399692673527311302" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1493059248">
+    <transform xil_pn:end_ts="1493228362" xil_pn:in_ck="-575170759868998027" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1493228362">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="../../../Downloads/tb_grading.v"/>
       <outfile xil_pn:name="compression.v"/>
+      <outfile xil_pn:name="compression_tb.v"/>
       <outfile xil_pn:name="count_extract_tb.v"/>
       <outfile xil_pn:name="count_leading_zeros.v"/>
       <outfile xil_pn:name="rounder.v"/>
@@ -78,27 +83,24 @@
       <outfile xil_pn:name="twos_to_sign.v"/>
       <outfile xil_pn:name="twos_to_sign_tb.v"/>
     </transform>
-    <transform xil_pn:end_ts="1493059249" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="1722486161180386859" xil_pn:start_ts="1493059249">
+    <transform xil_pn:end_ts="1493228362" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-8583604776046790144" xil_pn:start_ts="1493228362">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1493059249" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2650128611439414295" xil_pn:start_ts="1493059249">
+    <transform xil_pn:end_ts="1493228362" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-478716575993523778" xil_pn:start_ts="1493228362">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1493059249" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-1754437250227012842" xil_pn:start_ts="1493059249">
+    <transform xil_pn:end_ts="1493228005" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-1754437250227012842" xil_pn:start_ts="1493228005">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1493059249" xil_pn:in_ck="-2399692673527311302" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1493059249">
+    <transform xil_pn:end_ts="1493228362" xil_pn:in_ck="-575170759868998027" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1493228362">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="../../../Downloads/tb_grading.v"/>
       <outfile xil_pn:name="compression.v"/>
+      <outfile xil_pn:name="compression_tb.v"/>
       <outfile xil_pn:name="count_extract_tb.v"/>
       <outfile xil_pn:name="count_leading_zeros.v"/>
       <outfile xil_pn:name="rounder.v"/>
@@ -106,32 +108,22 @@
       <outfile xil_pn:name="twos_to_sign.v"/>
       <outfile xil_pn:name="twos_to_sign_tb.v"/>
     </transform>
-    <transform xil_pn:end_ts="1493059252" xil_pn:in_ck="-2399692673527311302" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-3315075058688041643" xil_pn:start_ts="1493059249">
+    <transform xil_pn:end_ts="1493228365" xil_pn:in_ck="-575170759868998027" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="2051618361354854655" xil_pn:start_ts="1493228362">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="rounder_tb_beh.prj"/>
-      <outfile xil_pn:name="rounder_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="tbS_beh.prj"/>
+      <outfile xil_pn:name="tbS_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1493059252" xil_pn:in_ck="4943125269731990815" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="901542726314469272" xil_pn:start_ts="1493059252">
+    <transform xil_pn:end_ts="1493228365" xil_pn:in_ck="-7864141042227958473" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="1533796298855004994" xil_pn:start_ts="1493228365">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="rounder_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="tbS_isim_beh.wdb"/>
     </transform>
     <transform xil_pn:end_ts="1493053945" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1493053945">
       <status xil_pn:value="SuccessfullyRun"/>

@@ -1,0 +1,6 @@
+verilog isim_temp "twos_to_sign.v"
+verilog isim_temp "rounder.v"
+verilog isim_temp "count_leading_zeros.v"
+verilog isim_temp "compression.v"
+verilog isim_temp "compression_tb.v"
+verilog isim_temp "C:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v"
