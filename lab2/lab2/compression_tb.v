@@ -41,13 +41,16 @@ module compression_tb;
 	);
 
 	initial begin
-		D = 0;
+		// Testing a negative number
+		D = 12'b110101000001;
 		#100;
 		
+		// Testing a positive number
 		D = 12'b011111000001;
 		#100;
 		
-		D = 12'b011111100100;
+		// Testing a negative number with more than eight leading zeros
+		D = 12'b000000000101;
 		#100;
 	end
       
