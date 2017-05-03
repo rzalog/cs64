@@ -18,15 +18,15 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module counter(adj_clk, counter_clk, sel, adj, rst, minutes, seconds);
+module counter(adj_clk, counter_clk, sel, adj, rst, minutes_out, seconds_out);
 	input adj_clk;
 	input counter_clk;
 	input sel;
 	input adj;
 	input rst;
 	
-	output minutes;
-	output seconds;
+	output [31:0] minutes_out;
+	output [31:0] seconds_out;
 	integer minutes;
 	integer seconds;
 	
@@ -44,32 +44,41 @@ module counter(adj_clk, counter_clk, sel, adj, rst, minutes, seconds);
 	
 	always @(posedge counter_clk) begin
 		if (!adj) begin
-			counter <= counter + 1;
+			counter[31:0] <= counter[31:0] + 32'b1;
+		end
+		if (rst) begin
+			counter[31:0] <= 32'b0;
 		end
 	end
 	
-	always @(posedge rst) begin
-		counter <= 0;
-		extra_minutes <= 0;
-		extra_seconds <= 0;
-		
-		minutes <= 0;
-		seconds <= 0;
-	end
-	
 	always @(posedge adj_clk) begin
-		if (adj) begin
-			if (sel) begin
-				extra_seconds <= extra_seconds + 1;
-			end else begin
-				extra_minutes <= extra_minutes + 1;
+		if (rst) begin
+			extra_minutes[31:0] <= 32'b0;
+			extra_seconds[31:0] <= 32'b0;
+		end
+		else begin
+			if (adj) begin
+				if (sel) begin
+					extra_seconds <= extra_seconds + 1;
+				end else begin
+					extra_minutes <= extra_minutes + 1;
+				end
 			end
 		end
 	end
 	
 	always @(counter) begin
-		minutes <= (counter / 60 + extra_minutes) % 100;
-		seconds <= ((counter % 60) + extra_seconds) % 60;
+		if (rst) begin
+			minutes[31:0] <= 32'b0;
+			seconds[31:0] <= 32'b0;
+		end
+		else begin
+			minutes <= (counter / 60 + extra_minutes) % 100;
+			seconds <= ((counter % 60) + extra_seconds) % 60;
+		end
 	end
+	
+	assign minutes_out = minutes[31:0];
+	assign seconds_out = minutes[31:0];
 
 endmodule

@@ -1,0 +1,36 @@
+//! **************************************************************************
+// Written by: Map P.68d on Wed May 03 11:23:14 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "CD" LOCATE = SITE "U18" LEVEL 1;
+COMP "SW_SEL" LOCATE = SITE "T9" LEVEL 1;
+COMP "CE" LOCATE = SITE "M14" LEVEL 1;
+COMP "CF" LOCATE = SITE "N14" LEVEL 1;
+COMP "CG" LOCATE = SITE "L14" LEVEL 1;
+COMP "BTN_RST" LOCATE = SITE "B8" LEVEL 1;
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "SW_ADJ" LOCATE = SITE "T10" LEVEL 1;
+COMP "AN0" LOCATE = SITE "N16" LEVEL 1;
+COMP "AN1" LOCATE = SITE "N15" LEVEL 1;
+COMP "AN2" LOCATE = SITE "P18" LEVEL 1;
+COMP "AN3" LOCATE = SITE "P17" LEVEL 1;
+COMP "CA" LOCATE = SITE "T17" LEVEL 1;
+COMP "CB" LOCATE = SITE "T18" LEVEL 1;
+COMP "CC" LOCATE = SITE "U17" LEVEL 1;
+TIMEGRP sys_clk_pin = BEL "clock_divider_/disp_counter_0" BEL
+        "clock_divider_/disp_counter_1" BEL "clock_divider_/disp_counter_2"
+        BEL "clock_divider_/disp_counter_3" BEL
+        "clock_divider_/disp_counter_4" BEL "clock_divider_/disp_counter_5"
+        BEL "clock_divider_/disp_counter_6" BEL
+        "clock_divider_/disp_counter_7" BEL "clock_divider_/disp_counter_8"
+        BEL "clock_divider_/disp_counter_9" BEL
+        "clock_divider_/disp_counter_10" BEL "clock_divider_/disp_counter_11"
+        BEL "clock_divider_/disp_counter_12" BEL
+        "clock_divider_/disp_counter_13" BEL "clock_divider_/disp_counter_14"
+        BEL "clock_divider_/disp_counter_15" BEL
+        "clock_divider_/disp_counter_16" BEL "clock_divider_/disp_counter_17"
+        BEL "clock_divider_/disp_counter_18" BEL "clk_BUFGP/BUFG";
+TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+SCHEMATIC END;
+
