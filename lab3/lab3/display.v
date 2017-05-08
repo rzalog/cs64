@@ -64,7 +64,7 @@ module display(disp_clk, counter_clk, minutes, seconds,
 		anodes[3:0] = 4'b1110;
 		cur_anode = 0;
 		
-		cur_num = 0;
+		cur_num = 2;
 	end
 	
 	always @(posedge disp_clk) begin
@@ -74,13 +74,16 @@ module display(disp_clk, counter_clk, minutes, seconds,
 		nums_to_display[0] <= seconds % 10;
 		
 		anodes <= {anodes[0], anodes[3:1]};
-		cur_disp_value[6:0] <= numbers[nums_to_display[cur_num]][6:0];
+
+		//cur_disp_value <= numbers[nums_to_display[0]];
+		//cur_disp_value <= 7'b1011111;
 		
-		cur_anode = cur_anode + 1'b1;
+		cur_disp_value <= numbers[cur_num];
+		//cur_anode <= cur_anode + 1'b1;
 	end
 	
 	always @(posedge counter_clk) begin
-		cur_num = (cur_num + 1) % 10;
+		cur_num <= (cur_num + 1) % 10;
 	end
 	
 	assign CA = ~cur_disp_value[6];

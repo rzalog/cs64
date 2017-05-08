@@ -42,16 +42,16 @@ module counter(adj_clk, counter_clk, sel, adj, rst, minutes_out, seconds_out);
 		seconds = 0;
 	end
 	
-	always @(posedge counter_clk) begin
-		if (!adj) begin
-			counter[31:0] <= counter[31:0] + 32'b1;
-		end
+	always @(posedge counter_clk or posedge rst) begin
+//		if (!adj) begin
+//			counter[31:0] <= counter[31:0] + 32'b1;
+//		end
 		if (rst) begin
 			counter[31:0] <= 32'b0;
 		end
 	end
 	
-	always @(posedge adj_clk) begin
+	always @(posedge adj_clk or posedge rst) begin
 		if (rst) begin
 			extra_minutes[31:0] <= 32'b0;
 			extra_seconds[31:0] <= 32'b0;

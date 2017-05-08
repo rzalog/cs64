@@ -56,18 +56,19 @@ module stopwatch(clk, BTN_RST, SW_ADJ, SW_SEL,
 	wire [31:0] minutes;
 	wire [31:0] seconds;
 	
-//	counter counter(
-//		.adj_clk(adj_clk),
-//		.counter_clk(counter_clk),
-//		.sel(SW_SEL),
-//		.adj(SW_ADJ),
-//		.rst(BTN_RST),
-//		.minutes_out(minutes),
-//		.seconds_out(seconds)
-//	);
+	counter counter(
+		.adj_clk(adj_clk),
+		.counter_clk(counter_clk),
+		.sel(SW_SEL),
+		.adj(SW_ADJ),
+		.rst(BTN_RST),
+		.minutes_out(minutes),
+		.seconds_out(seconds)
+	);
 	
 	display display(
 		.disp_clk(disp_clk),
+		.counter_clk(counter_clk),
 		.minutes(minutes),
 		.seconds(seconds),
 		.AN0(AN0),

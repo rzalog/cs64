@@ -1,3 +1,4 @@
 verilog work "display.v"
+verilog work "counter.v"
 verilog work "clock_divider.v"
 verilog work "stopwatch.v"

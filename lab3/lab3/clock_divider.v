@@ -40,18 +40,11 @@ module clock_divider(clk, rst, adj_clk, counter_clk, disp_clk, blink_clk);
 		blink_counter = 1;
 	end
 	
-	always @(posedge clk or posedge rst) begin
-		if (rst) begin
-			adj_counter <= 1;
-			counter_counter <= 1;
-			disp_counter <= 1;
-			blink_counter <= 1;
-		end else begin
-			adj_counter <= (adj_counter + 1) % 'd100000000;
-			counter_counter <= (counter_counter + 1) % 'd50000000;
-			disp_counter <= (disp_counter + 1) % 'd333333; // We chose to do 300 Hz
-			blink_counter <= (blink_counter + 1) % 'd50000000;
-		end
+	always @(posedge clk) begin
+		adj_counter <= (adj_counter + 1) % 'd100000000;
+		counter_counter <= (counter_counter + 1) % 'd50000000;
+		disp_counter <= (disp_counter + 1) % 'd333333; // We chose to do 300 Hz
+		blink_counter <= (blink_counter + 1) % 'd50000000;
 	end
 	
 	assign adj_clk = adj_counter == 0;

@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: stopwatch.prj
 
@@ -107,6 +107,8 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 Analyzing Verilog file "C:\Users\152\cs64\lab3\lab3\display.v" into library work
 Parsing module <display>.
+Analyzing Verilog file "C:\Users\152\cs64\lab3\lab3\counter.v" into library work
+Parsing module <counter>.
 Analyzing Verilog file "C:\Users\152\cs64\lab3\lab3\clock_divider.v" into library work
 Parsing module <clock_divider>.
 Analyzing Verilog file "C:\Users\152\cs64\lab3\lab3\stopwatch.v" into library work
@@ -115,19 +117,20 @@ Parsing module <stopwatch>.
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-WARNING:HDLCompiler:1016 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" Line 69: Port counter_clk is not connected to this instance
 
 Elaborating module <stopwatch>.
 
 Elaborating module <clock_divider>.
-WARNING:HDLCompiler:1127 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" Line 50: Assignment to adj_clk ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" Line 51: Assignment to counter_clk ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" Line 53: Assignment to blink_clk ignored, since the identifier is never used
 
+Elaborating module <counter>.
+WARNING:HDLCompiler:91 - "C:\Users\152\cs64\lab3\lab3\counter.v" Line 71: Signal <rst> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+WARNING:HDLCompiler:91 - "C:\Users\152\cs64\lab3\lab3\counter.v" Line 76: Signal <extra_minutes> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+WARNING:HDLCompiler:91 - "C:\Users\152\cs64\lab3\lab3\counter.v" Line 77: Signal <extra_seconds> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+WARNING:HDLCompiler:1127 - "C:\Users\152\cs64\lab3\lab3\counter.v" Line 70: Assignment to seconds ignored, since the identifier is never used
+
 Elaborating module <display>.
-WARNING:HDLCompiler:634 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" Line 56: Net <minutes[31]> does not have a driver.
-WARNING:HDLCompiler:634 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" Line 57: Net <seconds[31]> does not have a driver.
-WARNING:HDLCompiler:552 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" Line 69: Input port counter_clk is not connected on this instance
+WARNING:HDLCompiler:1127 - "C:\Users\152\cs64\lab3\lab3\display.v" Line 70: Assignment to nums_to_display ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -135,305 +138,249 @@ WARNING:HDLCompiler:552 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" Line 69: Inp
 
 Synthesizing Unit <stopwatch>.
     Related source file is "C:\Users\152\cs64\lab3\lab3\stopwatch.v".
-WARNING:Xst:2898 - Port 'counter_clk', unconnected in block instance 'display', is tied to GND.
-WARNING:Xst:647 - Input <SW_ADJ> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <SW_SEL> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" line 47: Output port <adj_clk> of the instance <clock_divider> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" line 47: Output port <counter_clk> of the instance <clock_divider> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "C:\Users\152\cs64\lab3\lab3\stopwatch.v" line 47: Output port <blink_clk> of the instance <clock_divider> is unconnected or connected to loadless signal.
-WARNING:Xst:653 - Signal <minutes> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <seconds> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
 	no macro.
 Unit <stopwatch> synthesized.
 
 Synthesizing Unit <clock_divider>.
     Related source file is "C:\Users\152\cs64\lab3\lab3\clock_divider.v".
-    Found 26-bit register for signal <_n0077>.
-    Found 26-bit register for signal <_n0167>.
-    Found 27-bit register for signal <_n0110>.
-    Found 19-bit register for signal <_n0135>.
-    Found 32-bit adder for signal <adj_counter[31]_GND_2_o_add_0_OUT> created at line 50.
-    Found 32-bit adder for signal <counter_counter[31]_GND_2_o_add_2_OUT> created at line 51.
-    Found 32-bit adder for signal <disp_counter[31]_GND_2_o_add_4_OUT> created at line 52.
-    Found 32-bit adder for signal <blink_counter[31]_GND_2_o_add_6_OUT> created at line 53.
-    WARNING:Xst:2404 -  FFs/Latches <blink_counter<31:26>> (without init value) have a constant value of 0 in block <clock_divider>.
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 26-bit register for signal <_n0067>.
+    Found 27-bit register for signal <_n0098>.
+    Found 19-bit register for signal <_n0121>.
+    Found 26-bit register for signal <_n0151>.
+    Found 32-bit adder for signal <adj_counter[31]_GND_2_o_add_1_OUT> created at line 44.
+    Found 32-bit adder for signal <counter_counter[31]_GND_2_o_add_3_OUT> created at line 45.
+    Found 32-bit adder for signal <disp_counter[31]_GND_2_o_add_5_OUT> created at line 46.
+    Found 32-bit adder for signal <blink_counter[31]_GND_2_o_add_7_OUT> created at line 47.
+    WARNING:Xst:2404 -  FFs/Latches <counter_counter<31:26>> (without init value) have a constant value of 0 in block <clock_divider>.
     WARNING:Xst:2404 -  FFs/Latches <adj_counter<31:27>> (without init value) have a constant value of 0 in block <clock_divider>.
     WARNING:Xst:2404 -  FFs/Latches <disp_counter<31:19>> (without init value) have a constant value of 0 in block <clock_divider>.
-    WARNING:Xst:2404 -  FFs/Latches <counter_counter<31:26>> (without init value) have a constant value of 0 in block <clock_divider>.
+    WARNING:Xst:2404 -  FFs/Latches <blink_counter<31:26>> (without init value) have a constant value of 0 in block <clock_divider>.
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred  98 D-type flip-flop(s).
 	inferred   4 Multiplexer(s).
 Unit <clock_divider> synthesized.
 
+Synthesizing Unit <counter>.
+    Related source file is "C:\Users\152\cs64\lab3\lab3\counter.v".
+WARNING:Xst:647 - Input <counter_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit register for signal <extra_minutes>.
+    Found 32-bit adder for signal <extra_minutes[31]_GND_6_o_add_2_OUT> created at line 64.
+    Found 32-bit adder for signal <counter[31]_extra_minutes[31]_add_10_OUT> created at line 76.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <counter> synthesized.
+
+Synthesizing Unit <div_32s_7s>.
+    Related source file is "".
+    Found 32-bit subtractor for signal <a[31]_unary_minus_1_OUT> created at line 0.
+    Found 33-bit adder for signal <GND_39_o_BUS_0001_add_70_OUT[32:0]> created at line 0.
+    Found 39-bit adder for signal <GND_39_o_b[6]_add_5_OUT> created at line 0.
+    Found 38-bit adder for signal <GND_39_o_b[6]_add_7_OUT> created at line 0.
+    Found 37-bit adder for signal <GND_39_o_b[6]_add_9_OUT> created at line 0.
+    Found 36-bit adder for signal <GND_39_o_b[6]_add_11_OUT> created at line 0.
+    Found 35-bit adder for signal <GND_39_o_b[6]_add_13_OUT> created at line 0.
+    Found 34-bit adder for signal <GND_39_o_b[6]_add_15_OUT> created at line 0.
+    Found 33-bit adder for signal <GND_39_o_b[6]_add_17_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_b[6]_add_19_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_21_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_23_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_25_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_27_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_29_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_31_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_33_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_35_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_37_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_39_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_41_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_43_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_45_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_47_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_49_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_51_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_53_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_55_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_57_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_59_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_61_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_63_OUT[31:0]> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_65_OUT[31:0]> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_39_o_add_67_OUT[31:0]> created at line 0.
+    Found 39-bit comparator greater for signal <BUS_0001_INV_5376_o> created at line 0
+    Found 38-bit comparator greater for signal <BUS_0002_INV_5375_o> created at line 0
+    Found 37-bit comparator greater for signal <BUS_0003_INV_5374_o> created at line 0
+    Found 36-bit comparator greater for signal <BUS_0004_INV_5373_o> created at line 0
+    Found 35-bit comparator greater for signal <BUS_0005_INV_5372_o> created at line 0
+    Found 34-bit comparator greater for signal <BUS_0006_INV_5371_o> created at line 0
+    Found 33-bit comparator greater for signal <BUS_0007_INV_5370_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0008_INV_5369_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0009_INV_5368_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0010_INV_5367_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0011_INV_5366_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0012_INV_5365_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0013_INV_5364_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0014_INV_5363_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0015_INV_5362_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0016_INV_5361_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0017_INV_5360_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0018_INV_5359_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0019_INV_5358_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0020_INV_5357_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0021_INV_5356_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0022_INV_5355_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0023_INV_5354_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0024_INV_5353_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0025_INV_5352_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0026_INV_5351_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0027_INV_5350_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0028_INV_5349_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0029_INV_5348_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0030_INV_5347_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0031_INV_5346_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0032_INV_5345_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0033_INV_5344_o> created at line 0
+    Summary:
+	inferred  34 Adder/Subtractor(s).
+	inferred  33 Comparator(s).
+	inferred 933 Multiplexer(s).
+Unit <div_32s_7s> synthesized.
+
+Synthesizing Unit <rem_32s_8s>.
+    Related source file is "".
+    Found 32-bit subtractor for signal <a[31]_unary_minus_1_OUT> created at line 0.
+    Found 8-bit adder for signal <GND_42_o_a[31]_add_70_OUT[7:0]> created at line 0.
+    Found 40-bit adder for signal <GND_42_o_b[7]_add_5_OUT> created at line 0.
+    Found 39-bit adder for signal <GND_42_o_b[7]_add_7_OUT> created at line 0.
+    Found 38-bit adder for signal <GND_42_o_b[7]_add_9_OUT> created at line 0.
+    Found 37-bit adder for signal <GND_42_o_b[7]_add_11_OUT> created at line 0.
+    Found 36-bit adder for signal <GND_42_o_b[7]_add_13_OUT> created at line 0.
+    Found 35-bit adder for signal <GND_42_o_b[7]_add_15_OUT> created at line 0.
+    Found 34-bit adder for signal <GND_42_o_b[7]_add_17_OUT> created at line 0.
+    Found 33-bit adder for signal <GND_42_o_b[7]_add_19_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_b[7]_add_21_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_23_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_25_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_27_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_29_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_31_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_33_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_35_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_37_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_39_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_41_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_43_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_45_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_47_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_49_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_51_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_53_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_55_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_57_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_59_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_61_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_63_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_65_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_67_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_42_o_add_69_OUT> created at line 0.
+    Found 40-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 39-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 38-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 37-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 36-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 35-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 34-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 33-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0013> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0014> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0015> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0016> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0017> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0018> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0019> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0020> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0021> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0022> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0023> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0024> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0025> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0026> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0027> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0028> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0029> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0030> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0031> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0032> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0033> created at line 0
+    Summary:
+	inferred  35 Adder/Subtractor(s).
+	inferred  33 Comparator(s).
+	inferred 1034 Multiplexer(s).
+Unit <rem_32s_8s> synthesized.
+
 Synthesizing Unit <display>.
     Related source file is "C:\Users\152\cs64\lab3\lab3\display.v".
+WARNING:Xst:647 - Input <minutes> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <seconds> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2999 - Signal 'numbers', unconnected in block 'display', is tied to its initial value.
 WARNING:Xst:3035 - Index value(s) does not match array range for signal <numbers>, simulation mismatch.
     Found 10x7-bit single-port Read Only RAM <Mram_numbers> for signal <numbers>.
     Found 4-bit register for signal <anodes>.
     Found 7-bit register for signal <cur_disp_value>.
     Found 32-bit register for signal <cur_num>.
-    Found 128-bit register for signal <n0022>.
-    Found 32-bit adder for signal <cur_num[31]_GND_7_o_add_13_OUT> created at line 83.
-    Found 32-bit 4-to-1 multiplexer for signal <n0028> created at line 77.
+    Found 32-bit adder for signal <cur_num[31]_GND_45_o_add_10_OUT> created at line 86.
     Summary:
 	inferred   1 RAM(s).
 	inferred   1 Adder/Subtractor(s).
-	inferred 171 D-type flip-flop(s).
-	inferred   1 Multiplexer(s).
+	inferred  43 D-type flip-flop(s).
 Unit <display> synthesized.
-
-Synthesizing Unit <div_32u_4u>.
-    Related source file is "".
-    Found 36-bit adder for signal <n2401> created at line 0.
-    Found 36-bit adder for signal <GND_8_o_b[3]_add_1_OUT> created at line 0.
-    Found 35-bit adder for signal <n2405> created at line 0.
-    Found 35-bit adder for signal <GND_8_o_b[3]_add_3_OUT> created at line 0.
-    Found 34-bit adder for signal <n2409> created at line 0.
-    Found 34-bit adder for signal <GND_8_o_b[3]_add_5_OUT> created at line 0.
-    Found 33-bit adder for signal <n2413> created at line 0.
-    Found 33-bit adder for signal <GND_8_o_b[3]_add_7_OUT> created at line 0.
-    Found 32-bit adder for signal <n2417> created at line 0.
-    Found 32-bit adder for signal <a[31]_b[3]_add_9_OUT> created at line 0.
-    Found 32-bit adder for signal <n2421> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_11_OUT> created at line 0.
-    Found 32-bit adder for signal <n2425> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_13_OUT> created at line 0.
-    Found 32-bit adder for signal <n2429> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_15_OUT> created at line 0.
-    Found 32-bit adder for signal <n2433> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_17_OUT> created at line 0.
-    Found 32-bit adder for signal <n2437> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_19_OUT> created at line 0.
-    Found 32-bit adder for signal <n2441> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_21_OUT> created at line 0.
-    Found 32-bit adder for signal <n2445> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_23_OUT> created at line 0.
-    Found 32-bit adder for signal <n2449> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_25_OUT> created at line 0.
-    Found 32-bit adder for signal <n2453> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_27_OUT> created at line 0.
-    Found 32-bit adder for signal <n2457> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_29_OUT> created at line 0.
-    Found 32-bit adder for signal <n2461> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_31_OUT> created at line 0.
-    Found 32-bit adder for signal <n2465> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_33_OUT> created at line 0.
-    Found 32-bit adder for signal <n2469> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_35_OUT> created at line 0.
-    Found 32-bit adder for signal <n2473> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_37_OUT> created at line 0.
-    Found 32-bit adder for signal <n2477> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_39_OUT> created at line 0.
-    Found 32-bit adder for signal <n2481> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_41_OUT> created at line 0.
-    Found 32-bit adder for signal <n2485> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_43_OUT> created at line 0.
-    Found 32-bit adder for signal <n2489> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_45_OUT> created at line 0.
-    Found 32-bit adder for signal <n2493> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_47_OUT> created at line 0.
-    Found 32-bit adder for signal <n2497> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_49_OUT> created at line 0.
-    Found 32-bit adder for signal <n2501> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_51_OUT> created at line 0.
-    Found 32-bit adder for signal <n2505> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_53_OUT> created at line 0.
-    Found 32-bit adder for signal <n2509> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_55_OUT> created at line 0.
-    Found 32-bit adder for signal <n2513> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_57_OUT> created at line 0.
-    Found 32-bit adder for signal <n2517> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_59_OUT[31:0]> created at line 0.
-    Found 32-bit adder for signal <n2521> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_61_OUT[31:0]> created at line 0.
-    Found 32-bit adder for signal <n2525> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_8_o_add_63_OUT[31:0]> created at line 0.
-    Found 36-bit comparator lessequal for signal <BUS_0001> created at line 0
-    Found 35-bit comparator lessequal for signal <BUS_0002> created at line 0
-    Found 34-bit comparator lessequal for signal <BUS_0003> created at line 0
-    Found 33-bit comparator lessequal for signal <BUS_0004> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0005> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0006> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0007> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0008> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0009> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0010> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0011> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0012> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0013> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0014> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0015> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0016> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0017> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0018> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0019> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0020> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0021> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0022> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0023> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0024> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0025> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0026> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0027> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0028> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0029> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0030> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0031> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0032> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0033> created at line 0
-    Summary:
-	inferred  64 Adder/Subtractor(s).
-	inferred  33 Comparator(s).
-	inferred 931 Multiplexer(s).
-Unit <div_32u_4u> synthesized.
-
-Synthesizing Unit <mod_32u_4u>.
-    Related source file is "".
-    Found 36-bit adder for signal <n2401> created at line 0.
-    Found 36-bit adder for signal <GND_9_o_b[3]_add_1_OUT> created at line 0.
-    Found 35-bit adder for signal <n2405> created at line 0.
-    Found 35-bit adder for signal <GND_9_o_b[3]_add_3_OUT> created at line 0.
-    Found 34-bit adder for signal <n2409> created at line 0.
-    Found 34-bit adder for signal <GND_9_o_b[3]_add_5_OUT> created at line 0.
-    Found 33-bit adder for signal <n2413> created at line 0.
-    Found 33-bit adder for signal <GND_9_o_b[3]_add_7_OUT> created at line 0.
-    Found 32-bit adder for signal <n2417> created at line 0.
-    Found 32-bit adder for signal <a[31]_b[3]_add_9_OUT> created at line 0.
-    Found 32-bit adder for signal <n2421> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_11_OUT> created at line 0.
-    Found 32-bit adder for signal <n2425> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_13_OUT> created at line 0.
-    Found 32-bit adder for signal <n2429> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_15_OUT> created at line 0.
-    Found 32-bit adder for signal <n2433> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_17_OUT> created at line 0.
-    Found 32-bit adder for signal <n2437> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_19_OUT> created at line 0.
-    Found 32-bit adder for signal <n2441> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_21_OUT> created at line 0.
-    Found 32-bit adder for signal <n2445> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_23_OUT> created at line 0.
-    Found 32-bit adder for signal <n2449> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_25_OUT> created at line 0.
-    Found 32-bit adder for signal <n2453> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_27_OUT> created at line 0.
-    Found 32-bit adder for signal <n2457> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_29_OUT> created at line 0.
-    Found 32-bit adder for signal <n2461> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_31_OUT> created at line 0.
-    Found 32-bit adder for signal <n2465> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_33_OUT> created at line 0.
-    Found 32-bit adder for signal <n2469> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_35_OUT> created at line 0.
-    Found 32-bit adder for signal <n2473> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_37_OUT> created at line 0.
-    Found 32-bit adder for signal <n2477> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_39_OUT> created at line 0.
-    Found 32-bit adder for signal <n2481> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_41_OUT> created at line 0.
-    Found 32-bit adder for signal <n2485> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_43_OUT> created at line 0.
-    Found 32-bit adder for signal <n2489> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_45_OUT> created at line 0.
-    Found 32-bit adder for signal <n2493> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_47_OUT> created at line 0.
-    Found 32-bit adder for signal <n2497> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_49_OUT> created at line 0.
-    Found 32-bit adder for signal <n2501> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_51_OUT> created at line 0.
-    Found 32-bit adder for signal <n2505> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_53_OUT> created at line 0.
-    Found 32-bit adder for signal <n2509> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_55_OUT> created at line 0.
-    Found 32-bit adder for signal <n2513> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_57_OUT> created at line 0.
-    Found 32-bit adder for signal <n2517> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_59_OUT> created at line 0.
-    Found 32-bit adder for signal <n2521> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_61_OUT> created at line 0.
-    Found 32-bit adder for signal <n2525> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_63_OUT> created at line 0.
-    Found 32-bit adder for signal <n2529> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_9_o_add_65_OUT> created at line 0.
-    Found 36-bit comparator lessequal for signal <BUS_0001> created at line 0
-    Found 35-bit comparator lessequal for signal <BUS_0002> created at line 0
-    Found 34-bit comparator lessequal for signal <BUS_0003> created at line 0
-    Found 33-bit comparator lessequal for signal <BUS_0004> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0005> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0006> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0007> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0008> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0009> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0010> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0011> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0012> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0013> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0014> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0015> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0016> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0017> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0018> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0019> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0020> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0021> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0022> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0023> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0024> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0025> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0026> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0027> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0028> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0029> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0030> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0031> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0032> created at line 0
-    Found 32-bit comparator lessequal for signal <BUS_0033> created at line 0
-    Summary:
-	inferred  66 Adder/Subtractor(s).
-	inferred  33 Comparator(s).
-	inferred 1025 Multiplexer(s).
-Unit <mod_32u_4u> synthesized.
 
 Synthesizing Unit <rem_32s_5s>.
     Related source file is "".
     Found 32-bit subtractor for signal <a[31]_unary_minus_1_OUT> created at line 0.
-    Found 5-bit adder for signal <GND_10_o_a[31]_add_70_OUT[4:0]> created at line 0.
-    Found 37-bit adder for signal <GND_10_o_b[4]_add_5_OUT> created at line 0.
-    Found 36-bit adder for signal <GND_10_o_b[4]_add_7_OUT> created at line 0.
-    Found 35-bit adder for signal <GND_10_o_b[4]_add_9_OUT> created at line 0.
-    Found 34-bit adder for signal <GND_10_o_b[4]_add_11_OUT> created at line 0.
-    Found 33-bit adder for signal <GND_10_o_b[4]_add_13_OUT> created at line 0.
+    Found 5-bit adder for signal <GND_48_o_a[31]_add_70_OUT[4:0]> created at line 0.
+    Found 37-bit adder for signal <GND_48_o_b[4]_add_5_OUT> created at line 0.
+    Found 36-bit adder for signal <GND_48_o_b[4]_add_7_OUT> created at line 0.
+    Found 35-bit adder for signal <GND_48_o_b[4]_add_9_OUT> created at line 0.
+    Found 34-bit adder for signal <GND_48_o_b[4]_add_11_OUT> created at line 0.
+    Found 33-bit adder for signal <GND_48_o_b[4]_add_13_OUT> created at line 0.
     Found 32-bit adder for signal <a[31]_b[4]_add_15_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_17_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_19_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_21_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_23_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_25_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_27_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_29_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_31_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_33_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_35_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_37_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_39_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_41_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_43_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_45_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_47_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_49_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_51_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_53_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_55_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_57_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_59_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_61_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_63_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_65_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_67_OUT> created at line 0.
-    Found 32-bit adder for signal <a[31]_GND_10_o_add_69_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_17_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_19_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_21_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_23_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_25_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_27_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_29_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_31_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_33_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_35_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_37_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_39_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_41_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_43_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_45_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_47_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_49_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_51_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_53_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_55_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_57_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_59_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_61_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_63_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_65_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_67_OUT> created at line 0.
+    Found 32-bit adder for signal <a[31]_GND_48_o_add_69_OUT> created at line 0.
     Found 37-bit comparator lessequal for signal <BUS_0001> created at line 0
     Found 36-bit comparator lessequal for signal <BUS_0002> created at line 0
     Found 35-bit comparator lessequal for signal <BUS_0003> created at line 0
@@ -479,39 +426,55 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  10x7-bit single-port Read Only RAM                    : 1
-# Adders/Subtractors                                   : 300
- 32-bit adder                                          : 261
- 32-bit subtractor                                     : 1
- 33-bit adder                                          : 9
- 34-bit adder                                          : 9
- 35-bit adder                                          : 9
- 36-bit adder                                          : 9
- 37-bit adder                                          : 1
+# Adders/Subtractors                                   : 111
+ 32-bit adder                                          : 85
+ 32-bit subtractor                                     : 3
+ 33-bit adder                                          : 4
+ 34-bit adder                                          : 3
+ 35-bit adder                                          : 3
+ 36-bit adder                                          : 3
+ 37-bit adder                                          : 3
+ 38-bit adder                                          : 2
+ 39-bit adder                                          : 2
+ 40-bit adder                                          : 1
  5-bit adder                                           : 1
+ 8-bit adder                                           : 1
 # Registers                                            : 8
- 128-bit register                                      : 1
  19-bit register                                       : 1
  26-bit register                                       : 2
  27-bit register                                       : 1
- 32-bit register                                       : 1
+ 32-bit register                                       : 2
  4-bit register                                        : 1
  7-bit register                                        : 1
-# Comparators                                          : 165
- 32-bit comparator lessequal                           : 144
- 33-bit comparator lessequal                           : 5
- 34-bit comparator lessequal                           : 5
- 35-bit comparator lessequal                           : 5
- 36-bit comparator lessequal                           : 5
- 37-bit comparator lessequal                           : 1
-# Multiplexers                                         : 4948
- 1-bit 2-to-1 multiplexer                              : 4933
+# Comparators                                          : 99
+ 32-bit comparator greater                             : 26
+ 32-bit comparator lessequal                           : 53
+ 33-bit comparator greater                             : 1
+ 33-bit comparator lessequal                           : 2
+ 34-bit comparator greater                             : 1
+ 34-bit comparator lessequal                           : 2
+ 35-bit comparator greater                             : 1
+ 35-bit comparator lessequal                           : 2
+ 36-bit comparator greater                             : 1
+ 36-bit comparator lessequal                           : 2
+ 37-bit comparator greater                             : 1
+ 37-bit comparator lessequal                           : 2
+ 38-bit comparator greater                             : 1
+ 38-bit comparator lessequal                           : 1
+ 39-bit comparator greater                             : 1
+ 39-bit comparator lessequal                           : 1
+ 40-bit comparator lessequal                           : 1
+# Multiplexers                                         : 3003
+ 1-bit 2-to-1 multiplexer                              : 2989
  19-bit 2-to-1 multiplexer                             : 1
  26-bit 2-to-1 multiplexer                             : 2
  27-bit 2-to-1 multiplexer                             : 1
  32-bit 2-to-1 multiplexer                             : 7
- 32-bit 4-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 2
+ 33-bit 2-to-1 multiplexer                             : 1
  5-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
 
 =========================================================================
 
@@ -519,17 +482,20 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_4> in Unit <display> is equivalent to the following 55 FFs/Latches, which will be removed : <nums_to_display_0_5> <nums_to_display_0_6> <nums_to_display_0_7> <nums_to_display_0_8> <nums_to_display_0_9> <nums_to_display_0_10> <nums_to_display_0_11> <nums_to_display_0_12> <nums_to_display_0_13> <nums_to_display_0_14> <nums_to_display_0_15> <nums_to_display_0_16> <nums_to_display_0_17> <nums_to_display_0_18> <nums_to_display_0_19> <nums_to_display_0_20> <nums_to_display_0_21> <nums_to_display_0_22> <nums_to_display_0_23> <nums_to_display_0_24> <nums_to_display_0_25> <nums_to_display_0_26> <nums_to_display_0_27> <nums_to_display_0_28> <nums_to_display_0_29> <nums_to_display_0_30> <nums_to_display_0_31> <nums_to_display_0_68> <nums_to_display_0_69> <nums_to_display_0_70> <nums_to_display_0_71> <nums_to_display_0_72> <nums_to_display_0_73> <nums_to_display_0_74> <nums_to_display_0_75> <nums_to_display_0_76> <nums_to_display_0_77> <nums_to_display_0_78>
-   <nums_to_display_0_79> <nums_to_display_0_80> <nums_to_display_0_81> <nums_to_display_0_82> <nums_to_display_0_83> <nums_to_display_0_84> <nums_to_display_0_85> <nums_to_display_0_86> <nums_to_display_0_87> <nums_to_display_0_88> <nums_to_display_0_89> <nums_to_display_0_90> <nums_to_display_0_91> <nums_to_display_0_92> <nums_to_display_0_93> <nums_to_display_0_94> <nums_to_display_0_95> 
-INFO:Xst:2261 - The FF/Latch <cur_num_4> in Unit <display> is equivalent to the following 27 FFs/Latches, which will be removed : <cur_num_5> <cur_num_6> <cur_num_7> <cur_num_8> <cur_num_9> <cur_num_10> <cur_num_11> <cur_num_12> <cur_num_13> <cur_num_14> <cur_num_15> <cur_num_16> <cur_num_17> <cur_num_18> <cur_num_19> <cur_num_20> <cur_num_21> <cur_num_22> <cur_num_23> <cur_num_24> <cur_num_25> <cur_num_26> <cur_num_27> <cur_num_28> <cur_num_29> <cur_num_30> <cur_num_31> 
-WARNING:Xst:1710 - FF/Latch <nums_to_display_0_4> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_0> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_1> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_2> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_3> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_4> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1290 - Hierarchical block <cur_num[31]_GND_7_o_rem_14> is unconnected in block <display>.
+WARNING:Xst:1290 - Hierarchical block <counter> is unconnected in block <stopwatch>.
    It will be removed from the design.
+INFO:Xst:2261 - The FF/Latch <cur_num_4> in Unit <display> is equivalent to the following 27 FFs/Latches, which will be removed : <cur_num_5> <cur_num_6> <cur_num_7> <cur_num_8> <cur_num_9> <cur_num_10> <cur_num_11> <cur_num_12> <cur_num_13> <cur_num_14> <cur_num_15> <cur_num_16> <cur_num_17> <cur_num_18> <cur_num_19> <cur_num_20> <cur_num_21> <cur_num_22> <cur_num_23> <cur_num_24> <cur_num_25> <cur_num_26> <cur_num_27> <cur_num_28> <cur_num_29> <cur_num_30> <cur_num_31> 
+
+Synthesizing (advanced) Unit <clock_divider>.
+The following registers are absorbed into counter <counter_counter>: 1 register on signal <counter_counter>.
+The following registers are absorbed into counter <blink_counter>: 1 register on signal <blink_counter>.
+The following registers are absorbed into counter <adj_counter>: 1 register on signal <adj_counter>.
+The following registers are absorbed into counter <disp_counter>: 1 register on signal <disp_counter>.
+Unit <clock_divider> synthesized (advanced).
+
+Synthesizing (advanced) Unit <counter>.
+The following registers are absorbed into counter <extra_minutes>: 1 register on signal <extra_minutes>.
+Unit <counter> synthesized (advanced).
 
 Synthesizing (advanced) Unit <display>.
 INFO:Xst:3231 - The small RAM <Mram_numbers> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
@@ -539,7 +505,7 @@ INFO:Xst:3231 - The small RAM <Mram_numbers> will be implemented on LUTs in orde
     | Port A                                                              |
     |     aspect ratio   | 10-word x 7-bit                     |          |
     |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <n0028>         |          |
+    |     addrA          | connected to signal <cur_num<3:0>>  |          |
     |     diA            | connected to signal <GND>           |          |
     |     doA            | connected to internal node          |          |
     -----------------------------------------------------------------------
@@ -551,264 +517,60 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  10x7-bit single-port distributed Read Only RAM        : 1
-# Adders/Subtractors                                   : 170
- 19-bit adder                                          : 1
- 26-bit adder                                          : 2
- 27-bit adder                                          : 1
- 32-bit adder                                          : 33
- 32-bit adder carry in                                 : 128
- 32-bit subtractor                                     : 1
- 4-bit adder carry in                                  : 2
+# Adders/Subtractors                                   : 106
+ 32-bit adder                                          : 98
+ 32-bit subtractor                                     : 3
+ 33-bit adder                                          : 1
  5-bit adder                                           : 2
-# Registers                                            : 269
- Flip-Flops                                            : 269
-# Comparators                                          : 165
- 32-bit comparator lessequal                           : 144
- 33-bit comparator lessequal                           : 5
- 34-bit comparator lessequal                           : 5
- 35-bit comparator lessequal                           : 5
- 36-bit comparator lessequal                           : 5
- 37-bit comparator lessequal                           : 1
-# Multiplexers                                         : 4948
- 1-bit 2-to-1 multiplexer                              : 4933
- 19-bit 2-to-1 multiplexer                             : 1
- 26-bit 2-to-1 multiplexer                             : 2
- 27-bit 2-to-1 multiplexer                             : 1
+ 8-bit adder                                           : 2
+# Counters                                             : 5
+ 19-bit modulo-333333 up counter                       : 1
+ 26-bit modulo-50000000 up counter                     : 2
+ 27-bit modulo-100000000 up counter                    : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 43
+ Flip-Flops                                            : 43
+# Comparators                                          : 99
+ 32-bit comparator greater                             : 26
+ 32-bit comparator lessequal                           : 53
+ 33-bit comparator greater                             : 1
+ 33-bit comparator lessequal                           : 2
+ 34-bit comparator greater                             : 1
+ 34-bit comparator lessequal                           : 2
+ 35-bit comparator greater                             : 1
+ 35-bit comparator lessequal                           : 2
+ 36-bit comparator greater                             : 1
+ 36-bit comparator lessequal                           : 2
+ 37-bit comparator greater                             : 1
+ 37-bit comparator lessequal                           : 2
+ 38-bit comparator greater                             : 1
+ 38-bit comparator lessequal                           : 1
+ 39-bit comparator greater                             : 1
+ 39-bit comparator lessequal                           : 1
+ 40-bit comparator lessequal                           : 1
+# Multiplexers                                         : 2999
+ 1-bit 2-to-1 multiplexer                              : 2989
  32-bit 2-to-1 multiplexer                             : 7
- 32-bit 4-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 2
+ 33-bit 2-to-1 multiplexer                             : 1
  5-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1989 - Unit <display>: instances <minutes[31]_PWR_6_o_div_1>, <seconds[31]_PWR_6_o_div_3> of unit <div_32u_4u> are equivalent, second instance is removed
-WARNING:Xst:1989 - Unit <display>: instances <minutes[31]_PWR_6_o_mod_2>, <seconds[31]_PWR_6_o_mod_4> of unit <mod_32u_4u> are equivalent, second instance is removed
-WARNING:Xst:1293 - FF/Latch <cur_num_0> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_1> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_2> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_3> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_4> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_5> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_6> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_7> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_8> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_9> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_10> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_11> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_12> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_13> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_14> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_15> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_31> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_30> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_29> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_28> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_27> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_26> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_25> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_24> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_23> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_22> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_21> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_20> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_19> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_18> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_17> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <cur_num_16> has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_84> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_85> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_86> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_87> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_88> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_89> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_90> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_91> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_92> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_93> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_94> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_95> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_25> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_24> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_23> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_22> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_21> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_20> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_19> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_18> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_17> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_16> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_15> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_14> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_13> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_12> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_11> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_10> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_9> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_8> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_7> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_6> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_5> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_4> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_83> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_82> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_81> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_80> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_79> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_78> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_77> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_76> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_75> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_74> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_73> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_72> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_71> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_70> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_69> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_68> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_31> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_30> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_29> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_28> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_27> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_26> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_32> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_96> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_33> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_97> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_34> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_98> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_35> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_99> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_36> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_100> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_37> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_101> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_38> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_102> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_39> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_103> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_40> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_104> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_41> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_105> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_42> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_106> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_43> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_107> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_44> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_108> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_45> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_109> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_46> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_110> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_47> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_111> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_52> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_116> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_48> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_112> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_53> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_117> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_49> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_113> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_54> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_118> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_50> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_114> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_55> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_119> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_51> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_115> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_56> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_120> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_57> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_121> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_62> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_126> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_58> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_122> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_63> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_127> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_59> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_123> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_60> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_124> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_61> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_125> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_0> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_64> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_1> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_65> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_2> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_66> 
-INFO:Xst:2261 - The FF/Latch <nums_to_display_0_3> in Unit <display> is equivalent to the following FF/Latch, which will be removed : <nums_to_display_0_67> 
-WARNING:Xst:1710 - FF/Latch <nums_to_display_0_0> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_1> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_2> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <nums_to_display_0_3> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cur_disp_value_0> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cur_disp_value_1> (without init value) has a constant value of 1 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cur_disp_value_2> (without init value) has a constant value of 1 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cur_disp_value_3> (without init value) has a constant value of 1 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cur_disp_value_4> (without init value) has a constant value of 1 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cur_disp_value_5> (without init value) has a constant value of 1 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cur_disp_value_6> (without init value) has a constant value of 1 in block <display>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <nums_to_display_0_32> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_33> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_34> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_35> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_36> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_37> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_38> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_39> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_40> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_41> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_42> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_43> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_44> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_45> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_46> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_47> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_48> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_49> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_50> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_51> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_52> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_53> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_54> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_55> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_56> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_57> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_58> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_59> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_60> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_61> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_62> of sequential type is unconnected in block <display>.
-WARNING:Xst:2677 - Node <nums_to_display_0_63> of sequential type is unconnected in block <display>.
+INFO:Xst:2261 - The FF/Latch <cur_num_4> in Unit <display> is equivalent to the following 27 FFs/Latches, which will be removed : <cur_num_5> <cur_num_6> <cur_num_7> <cur_num_8> <cur_num_9> <cur_num_10> <cur_num_11> <cur_num_12> <cur_num_13> <cur_num_14> <cur_num_15> <cur_num_16> <cur_num_17> <cur_num_18> <cur_num_19> <cur_num_20> <cur_num_21> <cur_num_22> <cur_num_23> <cur_num_24> <cur_num_25> <cur_num_26> <cur_num_27> <cur_num_28> <cur_num_29> <cur_num_30> <cur_num_31> 
 
 Optimizing unit <stopwatch> ...
 
 Optimizing unit <clock_divider> ...
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_0> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_1> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_2> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_3> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_4> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_5> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_6> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_7> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_8> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_9> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_10> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_11> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_12> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_13> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_14> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_15> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_16> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_17> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_18> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_19> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_20> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_21> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_22> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_23> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_24> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/counter_counter_25> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_0> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_1> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_2> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_3> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_4> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_5> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_6> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_7> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_8> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_9> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_10> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_11> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_12> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_13> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_14> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_15> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_16> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_17> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_18> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_19> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_20> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_21> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_22> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_23> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_24> of sequential type is unconnected in block <stopwatch>.
-WARNING:Xst:2677 - Node <clock_divider/blink_counter_25> of sequential type is unconnected in block <stopwatch>.
+
+Optimizing unit <counter> ...
+
+Optimizing unit <display> ...
 WARNING:Xst:2677 - Node <clock_divider/adj_counter_0> of sequential type is unconnected in block <stopwatch>.
 WARNING:Xst:2677 - Node <clock_divider/adj_counter_1> of sequential type is unconnected in block <stopwatch>.
 WARNING:Xst:2677 - Node <clock_divider/adj_counter_2> of sequential type is unconnected in block <stopwatch>.
@@ -836,10 +598,73 @@ WARNING:Xst:2677 - Node <clock_divider/adj_counter_23> of sequential type is unc
 WARNING:Xst:2677 - Node <clock_divider/adj_counter_24> of sequential type is unconnected in block <stopwatch>.
 WARNING:Xst:2677 - Node <clock_divider/adj_counter_25> of sequential type is unconnected in block <stopwatch>.
 WARNING:Xst:2677 - Node <clock_divider/adj_counter_26> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_0> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_1> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_2> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_3> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_4> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_5> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_6> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_7> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_8> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_9> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_10> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_11> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_12> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_13> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_14> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_15> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_16> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_17> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_18> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_19> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_20> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_21> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_22> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_23> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_24> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <clock_divider/blink_counter_25> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_31> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_30> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_29> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_28> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_27> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_26> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_25> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_24> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_23> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_22> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_21> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_20> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_19> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_18> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_17> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_16> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_15> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_14> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_13> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_12> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_11> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_10> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_9> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_8> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_7> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_6> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_5> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_4> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_3> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_2> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_1> of sequential type is unconnected in block <stopwatch>.
+WARNING:Xst:2677 - Node <counter/extra_minutes_0> of sequential type is unconnected in block <stopwatch>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block stopwatch, actual ratio is 0.
+Found area constraint ratio of 100 (+ 5) on block stopwatch, actual ratio is 3.
+FlipFlop display/cur_num_0 has been replicated 2 time(s)
+FlipFlop display/cur_num_1 has been replicated 2 time(s)
+FlipFlop display/cur_num_2 has been replicated 2 time(s)
+FlipFlop display/cur_num_3 has been replicated 2 time(s)
+FlipFlop display/cur_num_4 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -847,8 +672,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 23
- Flip-Flops                                            : 23
+# Registers                                            : 70
+ Flip-Flops                                            : 70
 
 =========================================================================
 
@@ -871,24 +696,23 @@ Top Level Output File Name         : stopwatch.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 83
+# BELS                             : 255
 #      GND                         : 1
-#      INV                         : 1
-#      LUT1                        : 18
-#      LUT2                        : 19
-#      LUT4                        : 2
-#      LUT6                        : 4
-#      MUXCY                       : 18
+#      INV                         : 10
+#      LUT1                        : 43
+#      LUT2                        : 46
+#      LUT3                        : 3
+#      LUT4                        : 13
+#      LUT5                        : 14
+#      LUT6                        : 25
+#      MUXCY                       : 52
 #      VCC                         : 1
-#      XORCY                       : 19
-# FlipFlops/Latches                : 23
-#      FD                          : 4
-#      FDC                         : 18
-#      FDP                         : 1
+#      XORCY                       : 47
+# FlipFlops/Latches                : 70
+#      FD                          : 70
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 12
-#      IBUF                        : 1
+# IO Buffers                       : 11
 #      OBUF                        : 11
 
 Device utilization summary:
@@ -898,20 +722,20 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              23  out of  18224     0%  
- Number of Slice LUTs:                   44  out of   9112     0%  
-    Number used as Logic:                44  out of   9112     0%  
+ Number of Slice Registers:              70  out of  18224     0%  
+ Number of Slice LUTs:                  154  out of   9112     1%  
+    Number used as Logic:               154  out of   9112     1%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     47
-   Number with an unused Flip Flop:      24  out of     47    51%  
-   Number with an unused LUT:             3  out of     47     6%  
-   Number of fully used LUT-FF pairs:    20  out of     47    42%  
-   Number of unique control sets:         2
+ Number of LUT Flip Flop pairs used:    163
+   Number with an unused Flip Flop:      93  out of    163    57%  
+   Number with an unused LUT:             9  out of    163     5%  
+   Number of fully used LUT-FF pairs:    61  out of    163    37%  
+   Number of unique control sets:         3
 
 IO Utilization: 
  Number of IOs:                          15
- Number of bonded IOBs:                  13  out of    232     5%  
+ Number of bonded IOBs:                  12  out of    232     5%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -934,13 +758,14 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+--------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)    | Load  |
------------------------------------+--------------------------+-------+
-disp_clk(clock_divider/_n0260<0>:O)| NONE(*)(display/anodes_3)| 4     |
-clk                                | BUFGP                    | 19    |
------------------------------------+--------------------------+-------+
-(*) This 1 clock signal(s) are generated by combinatorial logic,
+---------------------------------------+----------------------------------+-------+
+Clock Signal                           | Clock buffer(FF name)            | Load  |
+---------------------------------------+----------------------------------+-------+
+clk                                    | BUFGP                            | 45    |
+disp_clk(clock_divider/_n0244<0>:O)    | NONE(*)(display/cur_disp_value_6)| 11    |
+counter_clk(clock_divider/_n0192<0>5:O)| NONE(*)(display/cur_num_4)       | 14    |
+---------------------------------------+----------------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -953,14 +778,73 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 3.940ns (Maximum Frequency: 253.801MHz)
-   Minimum input arrival time before clock: 2.723ns
-   Maximum output required time after clock: 3.634ns
+   Minimum period: 6.234ns (Maximum Frequency: 160.412MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 4.382ns
    Maximum combinational path delay: No path found
 
 Timing Details:
 ---------------
 All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.428ns (frequency: 225.835MHz)
+  Total number of paths / destination ports: 1578 / 45
+-------------------------------------------------------------------------
+Delay:               4.428ns (Levels of Logic = 3)
+  Source:            clock_divider/counter_counter_13 (FF)
+  Destination:       clock_divider/counter_counter_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: clock_divider/counter_counter_13 to clock_divider/counter_counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               3   0.447   1.015  clock_divider/counter_counter_13 (clock_divider/counter_counter_13)
+     LUT6:I0->O            1   0.203   0.944  clock_divider/_n0295<0>1 (clock_divider/_n0295<0>)
+     LUT6:I0->O           26   0.203   1.311  clock_divider/_n0295<0>5 (clock_divider/_n0295)
+     LUT2:I0->O            1   0.203   0.000  clock_divider/Mcount_counter_counter_eqn_251 (clock_divider/Mcount_counter_counter_eqn_25)
+     FD:D                      0.102          clock_divider/counter_counter_0
+    ----------------------------------------
+    Total                      4.428ns (1.158ns logic, 3.270ns route)
+                                       (26.2% logic, 73.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'counter_clk'
+  Clock period: 6.234ns (frequency: 160.412MHz)
+  Total number of paths / destination ports: 1345 / 14
+-------------------------------------------------------------------------
+Delay:               6.234ns (Levels of Logic = 14)
+  Source:            display/cur_num_3_1 (FF)
+  Destination:       display/cur_num_4 (FF)
+  Source Clock:      counter_clk rising
+  Destination Clock: counter_clk rising
+
+  Data Path: display/cur_num_3_1 to display/cur_num_4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.961  display/cur_num_3_1 (display/cur_num_3_1)
+     LUT5:I0->O            1   0.203   0.000  display/cur_num[31]_GND_45_o_rem_11/Madd_a[31]_GND_48_o_add_67_OUT_lut<3> (display/cur_num[31]_GND_45_o_rem_11/Madd_a[31]_GND_48_o_add_67_OUT_lut<3>)
+     MUXCY:S->O            0   0.172   0.000  display/cur_num[31]_GND_45_o_rem_11/Madd_a[31]_GND_48_o_add_67_OUT_cy<3> (display/cur_num[31]_GND_45_o_rem_11/Madd_a[31]_GND_48_o_add_67_OUT_cy<3>)
+     XORCY:CI->O           1   0.180   0.580  display/cur_num[31]_GND_45_o_rem_11/Madd_a[31]_GND_48_o_add_67_OUT_xor<4> (display/cur_num[31]_GND_45_o_rem_11/a[31]_GND_48_o_add_67_OUT<4>)
+     LUT4:I3->O            2   0.205   0.864  display/cur_num[31]_GND_45_o_rem_11/Mmux_a[31]_GND_48_o_MUX_10859_o110191 (display/cur_num[31]_GND_45_o_rem_11/a[31]_a[31]_MUX_11888_o)
+     LUT5:I1->O            1   0.203   0.000  display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_lut<0> (display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<0> (display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<1> (display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<2> (display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<3> (display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<4> (display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<5> (display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<5>)
+     MUXCY:CI->O           6   0.213   0.745  display/cur_num[31]_GND_45_o_rem_11/Mcompar_BUS_0033_INV_10916_o_cy<6> (display/cur_num[31]_GND_45_o_rem_11/BUS_0033_INV_10916_o)
+     LUT6:I5->O            1   0.205   0.684  display/cur_num[31]_GND_45_o_rem_11/Mmux_a[31]_GND_48_o_MUX_10859_o110653 (display/cur_num[31]_GND_45_o_rem_11/Mmux_a[31]_GND_48_o_MUX_10859_o110653)
+     LUT6:I4->O            2   0.203   0.000  display/cur_num[31]_GND_45_o_rem_11/Mmux_a[31]_GND_48_o_MUX_10859_o110654 (display/cur_num[31]_GND_45_o_rem_11_OUT<4>)
+     FD:D                      0.102          display/cur_num_4
+    ----------------------------------------
+    Total                      6.234ns (2.400ns logic, 3.834ns route)
+                                       (38.5% logic, 61.5% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'disp_clk'
@@ -984,66 +868,24 @@ Delay:               1.165ns (Levels of Logic = 0)
                                        (47.1% logic, 52.9% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 3.940ns (frequency: 253.801MHz)
-  Total number of paths / destination ports: 551 / 19
--------------------------------------------------------------------------
-Delay:               3.940ns (Levels of Logic = 3)
-  Source:            clock_divider/disp_counter_2 (FF)
-  Destination:       clock_divider/disp_counter_0 (FF)
-  Source Clock:      clk rising
-  Destination Clock: clk rising
-
-  Data Path: clock_divider/disp_counter_2 to clock_divider/disp_counter_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q              3   0.447   0.898  clock_divider/disp_counter_2 (clock_divider/disp_counter_2)
-     LUT4:I0->O            1   0.203   0.808  clock_divider/_n0326<0>_SW1 (N8)
-     LUT6:I3->O           19   0.205   1.072  clock_divider/_n0326<0> (clock_divider/_n0326)
-     LUT2:I1->O            1   0.205   0.000  clock_divider/Mmux__n0178110 (clock_divider/_n0178<0>)
-     FDC:D                     0.102          clock_divider/disp_counter_0
-    ----------------------------------------
-    Total                      3.940ns (1.162ns logic, 2.778ns route)
-                                       (29.5% logic, 70.5% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 19 / 19
--------------------------------------------------------------------------
-Offset:              2.723ns (Levels of Logic = 1)
-  Source:            BTN_RST (PAD)
-  Destination:       clock_divider/disp_counter_0 (FF)
-  Destination Clock: clk rising
-
-  Data Path: BTN_RST to clock_divider/disp_counter_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O            19   1.222   1.071  BTN_RST_IBUF (BTN_RST_IBUF)
-     FDP:PRE                   0.430          clock_divider/disp_counter_18
-    ----------------------------------------
-    Total                      2.723ns (1.652ns logic, 1.071ns route)
-                                       (60.7% logic, 39.3% route)
-
-=========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'disp_clk'
-  Total number of paths / destination ports: 4 / 4
+  Total number of paths / destination ports: 11 / 11
 -------------------------------------------------------------------------
-Offset:              3.634ns (Levels of Logic = 1)
-  Source:            display/anodes_3 (FF)
-  Destination:       AN0 (PAD)
+Offset:              4.382ns (Levels of Logic = 2)
+  Source:            display/cur_disp_value_6 (FF)
+  Destination:       CA (PAD)
   Source Clock:      disp_clk rising
 
-  Data Path: display/anodes_3 to AN0
+  Data Path: display/cur_disp_value_6 to CA
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.616  display/anodes_3 (display/anodes_3)
-     OBUF:I->O                 2.571          AN0_OBUF (AN0)
+     FD:C->Q               1   0.447   0.579  display/cur_disp_value_6 (display/cur_disp_value_6)
+     INV:I->O              1   0.206   0.579  display/CA1_INV_0 (CA_OBUF)
+     OBUF:I->O                 2.571          CA_OBUF (CA)
     ----------------------------------------
-    Total                      3.634ns (3.018ns logic, 0.616ns route)
-                                       (83.0% logic, 17.0% route)
+    Total                      4.382ns (3.224ns logic, 1.158ns route)
+                                       (73.6% logic, 26.4% route)
 
 =========================================================================
 
@@ -1055,7 +897,15 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    3.940|         |         |         |
+clk            |    4.428|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock counter_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+counter_clk    |    6.234|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock disp_clk
@@ -1063,20 +913,21 @@ Clock to Setup on destination clock disp_clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
+counter_clk    |    2.217|         |         |         |
 disp_clk       |    1.165|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 21.00 secs
-Total CPU time to Xst completion: 21.27 secs
+Total REAL time to Xst completion: 46.00 secs
+Total CPU time to Xst completion: 46.20 secs
  
 --> 
 
-Total memory usage is 286708 kilobytes
+Total memory usage is 327816 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  237 (   0 filtered)
-Number of infos    :   43 (   0 filtered)
+Number of warnings :  102 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
 

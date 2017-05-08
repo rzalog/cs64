@@ -1,0 +1,2 @@
+Trying to get the display to count up properly (currently counting up by 2 when it should be incrementing by 1).
+Maybe try adjusting duty cycle?
