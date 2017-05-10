@@ -18,13 +18,14 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module counter(clk, adj_clk, counter_clk, sel, adj, rst, minutes, seconds);
+module counter(clk, adj_clk, counter_clk, sel, adj, rst, pause, minutes, seconds);
 	input clk;
 	input adj_clk;
 	input counter_clk;
 	input sel;
 	input adj;
 	input rst;
+	input pause;
 	
 	output reg [7:0] minutes;
 	output reg [7:0] seconds;
@@ -37,7 +38,7 @@ module counter(clk, adj_clk, counter_clk, sel, adj, rst, minutes, seconds);
 	reg counter_clk_old;
 
 	initial begin
-		counter = 35;
+		counter = 0;
 		extra_minutes = 0;
 		extra_seconds = 0;
 		minutes = 0;
@@ -61,9 +62,11 @@ module counter(clk, adj_clk, counter_clk, sel, adj, rst, minutes, seconds);
 			
 			if (adj) begin
 				if (sel) begin
-					extra_seconds <= (extra_seconds + 1) % 60;
+					// extra_seconds <= (extra_seconds + 1) % 60;
+					counter <= counter + 1;
 				end else begin
-					extra_minutes <= (extra_minutes + 1) % 100;
+					// extra_minutes <= (extra_minutes + 1) % 100;
+					counter <= counter + 60;
 				end
 			end
 		end
@@ -71,13 +74,13 @@ module counter(clk, adj_clk, counter_clk, sel, adj, rst, minutes, seconds);
 		if (counter_clk_old != counter_clk) begin
 			counter_clk_old <= counter_clk;
 			
-			if (!adj) begin
+			if (!adj && !pause) begin
 				counter <= counter + 1;
 			end
 		end
 		
-		minutes <= (counter / 60 + extra_minutes) % 100;
-		seconds <= ((counter % 60) + extra_seconds) % 6;
+		minutes <= (counter / 60) % 100;
+		seconds <= counter % 60;
 	end
 
 endmodule

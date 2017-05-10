@@ -71,25 +71,6 @@ module counter_tb;
 		sel = 0;
 		adj = 0;
 	end
-	
-	// Testing
-	initial begin
-//		#328;
-//		
-//		sel = 1;
-//		adj = 1;
-//		#200;
-//		
-//		sel = 0;
-//		#200;
-//		
-//		adj = 0;
-//		#200;
-
-		#3000;
-		
-		$finish;
-	end
       
 endmodule
 

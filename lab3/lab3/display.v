@@ -18,13 +18,15 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module display(disp_clk, counter_clk, minutes, seconds,
+module display(disp_clk, blink_clk, minutes, seconds, adj, sel,
 	AN0, AN1, AN2, AN3, CA, CB, CC, CD, CE, CF, CG);
 
 	input disp_clk;
-	input counter_clk;
+	input blink_clk;
 	input [7:0] minutes;
 	input [7:0] seconds;
+	input adj;
+	input sel;
 	
 	output AN0;
 	output AN1;
@@ -39,11 +41,16 @@ module display(disp_clk, counter_clk, minutes, seconds,
 	output CF;
 	output CG;
 	
+	reg blink_minutes;
+	reg blink_seconds;
+	
 	reg [6:0] cur_disp_value;
 	reg [3:0] anodes;
 	
 	reg [6:0] numbers [9:0];
-	reg [3:0] nums_to_display[3:0];
+	reg [7:0] nums_to_display[3:0];
+	
+	reg [7:0] nothing;
 	
 	reg [1:0] cur_anode;
 	
@@ -59,20 +66,34 @@ module display(disp_clk, counter_clk, minutes, seconds,
 		numbers[8] = 7'b1111111;
 		numbers[9] = 7'b1111011;
 		
+		nothing =  7'b0000000;
+		
 		anodes[3:0] = 4'b1110;
 		cur_anode = 0;
 	end
 	
 	always @(posedge disp_clk) begin
-		nums_to_display[3][3:0] <= minutes / 10;
-		nums_to_display[2][3:0] <= minutes % 10;
-		nums_to_display[1][3:0] <= seconds / 10;
-		nums_to_display[0][3:0] <= seconds % 10;
+		nums_to_display[3][7:0] <= minutes / 10;
+		nums_to_display[2][7:0] <= minutes % 10;
+		nums_to_display[1][7:0] <= seconds / 10;
+		nums_to_display[0][7:0] <= seconds % 10;
+		
+		blink_minutes <= adj & ~sel;
+		blink_seconds <= adj & sel;
 		
 		anodes <= {anodes[0], anodes[3:1]};
-
-		cur_disp_value <= numbers[nums_to_display[cur_anode]];
 		
+
+		if (blink_minutes && blink_clk && (cur_anode == 3 || cur_anode == 2)) begin
+			cur_disp_value <= nothing;
+		end 
+		else if (blink_seconds && blink_clk && (cur_anode == 1 || cur_anode == 0)) begin
+			cur_disp_value <= nothing;
+		end
+		else begin
+			cur_disp_value <= numbers[nums_to_display[cur_anode]];
+		end
+
 		cur_anode <= cur_anode + 1'b1;
 	end
 	
