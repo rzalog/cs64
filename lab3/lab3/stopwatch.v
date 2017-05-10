@@ -53,17 +53,32 @@ module stopwatch(clk, BTN_RST, SW_ADJ, SW_SEL,
 		.blink_clk(blink_clk)
 	);
 	
-	wire [31:0] minutes;
-	wire [31:0] seconds;
+	wire rst_d;
+	wire adj_d;
+	wire sel_d;
+	
+	debouncer debouncer(
+		.d_clk(disp_clk),
+		.rst(BTN_RST),
+		.adj(SW_ADJ),
+		.sel(SW_SEL),
+		.rst_d(rst_d),
+		.adj_d(adj_d),
+		.sel_d(sel_d)
+	);
+	
+	wire [7:0] minutes;
+	wire [7:0] seconds;
 	
 	counter counter(
+		.clk(disp_clk),
 		.adj_clk(adj_clk),
 		.counter_clk(counter_clk),
-		.sel(SW_SEL),
-		.adj(SW_ADJ),
-		.rst(BTN_RST),
-		.minutes_out(minutes),
-		.seconds_out(seconds)
+		.sel(sel_d),
+		.adj(adj_d),
+		.rst(rst_d),
+		.minutes(minutes),
+		.seconds(seconds)
 	);
 	
 	display display(
@@ -83,7 +98,6 @@ module stopwatch(clk, BTN_RST, SW_ADJ, SW_SEL,
 		.CF(CF),
 		.CG(CG)
 	);
-	
 
 
 endmodule

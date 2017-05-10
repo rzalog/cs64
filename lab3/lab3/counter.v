@@ -18,67 +18,66 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module counter(adj_clk, counter_clk, sel, adj, rst, minutes_out, seconds_out);
+module counter(clk, adj_clk, counter_clk, sel, adj, rst, minutes, seconds);
+	input clk;
 	input adj_clk;
 	input counter_clk;
 	input sel;
 	input adj;
 	input rst;
 	
-	output [31:0] minutes_out;
-	output [31:0] seconds_out;
-	integer minutes;
-	integer seconds;
+	output reg [7:0] minutes;
+	output reg [7:0] seconds;
 	
-	integer counter;
-	integer extra_minutes;
-	integer extra_seconds;
+	reg [15:0] counter;
+	reg [7:0] extra_minutes;
+	reg [7:0] extra_seconds;
 	
+	reg adj_clk_old;
+	reg counter_clk_old;
+
 	initial begin
-		counter = 0;
+		counter = 35;
 		extra_minutes = 0;
 		extra_seconds = 0;
 		minutes = 0;
 		seconds = 0;
+		
+		adj_clk_old = 0;
+		counter_clk_old = 0;
 	end
-	
-	always @(posedge counter_clk or posedge rst) begin
-//		if (!adj) begin
-//			counter[31:0] <= counter[31:0] + 32'b1;
-//		end
+
+	always @(posedge clk) begin
 		if (rst) begin
-			counter[31:0] <= 32'b0;
+			counter <= 0;
+			extra_minutes <= 0;
+			extra_seconds <= 0;
+			minutes <= 0;
+			seconds <= 0;
 		end
-	end
-	
-	always @(posedge adj_clk or posedge rst) begin
-		if (rst) begin
-			extra_minutes[31:0] <= 32'b0;
-			extra_seconds[31:0] <= 32'b0;
-		end
-		else begin
+		
+		if (adj_clk_old != adj_clk) begin
+			adj_clk_old <= adj_clk;
+			
 			if (adj) begin
 				if (sel) begin
-					extra_seconds <= extra_seconds + 1;
+					extra_seconds <= (extra_seconds + 1) % 60;
 				end else begin
-					extra_minutes <= extra_minutes + 1;
+					extra_minutes <= (extra_minutes + 1) % 100;
 				end
 			end
 		end
-	end
-	
-	always @(counter) begin
-		if (rst) begin
-			minutes[31:0] <= 32'b0;
-			seconds[31:0] <= 32'b0;
+		
+		if (counter_clk_old != counter_clk) begin
+			counter_clk_old <= counter_clk;
+			
+			if (!adj) begin
+				counter <= counter + 1;
+			end
 		end
-		else begin
-			minutes <= (counter / 60 + extra_minutes) % 100;
-			seconds <= ((counter % 60) + extra_seconds) % 60;
-		end
+		
+		minutes <= (counter / 60 + extra_minutes) % 100;
+		seconds <= ((counter % 60) + extra_seconds) % 6;
 	end
-	
-	assign minutes_out = minutes[31:0];
-	assign seconds_out = minutes[31:0];
 
 endmodule

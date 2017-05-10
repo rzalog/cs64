@@ -8,19 +8,13 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\152\cs64\lab3\lab3\stopwatch.v" Line 53: Assignment to <arg fmt="%s" index="1">blink_clk</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="91" delta="new" >"C:\Users\152\cs64\lab3\lab3\counter.v" Line 71: Signal &lt;<arg fmt="%s" index="1">rst</arg>&gt; missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"C:\Users\152\cs64\lab3\lab3\counter.v" Line 75: Result of <arg fmt="%d" index="1">17</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">16</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="91" delta="new" >"C:\Users\152\cs64\lab3\lab3\counter.v" Line 76: Signal &lt;<arg fmt="%s" index="1">extra_minutes</arg>&gt; missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"C:\Users\152\cs64\lab3\lab3\display.v" Line 67: Result of <arg fmt="%d" index="1">8</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="91" delta="new" >"C:\Users\152\cs64\lab3\lab3\counter.v" Line 77: Signal &lt;<arg fmt="%s" index="1">extra_seconds</arg>&gt; missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\152\cs64\lab3\lab3\counter.v" Line 70: Assignment to <arg fmt="%s" index="1">seconds</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\152\cs64\lab3\lab3\display.v" Line 70: Assignment to <arg fmt="%s" index="1">nums_to_display</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"C:\Users\152\cs64\lab3\lab3\display.v" Line 69: Result of <arg fmt="%d" index="1">8</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
 <msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\152\cs64\lab3\lab3\stopwatch.v</arg>&quot; line <arg fmt="%s" index="2">47</arg>: Output port &lt;<arg fmt="%s" index="3">blink_clk</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">clock_divider</arg>&gt; is unconnected or connected to loadless signal.
@@ -29,25 +23,25 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rst</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">blink_counter</arg>&lt;<arg fmt="%d" index="2">31</arg>:<arg fmt="%d" index="3">27</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">clock_divider</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">adj_counter</arg>&lt;<arg fmt="%d" index="2">31</arg>:<arg fmt="%d" index="3">25</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">clock_divider</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">counter_counter</arg>&lt;<arg fmt="%d" index="2">31</arg>:<arg fmt="%d" index="3">26</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">clock_divider</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">adj_counter</arg>&lt;<arg fmt="%d" index="2">31</arg>:<arg fmt="%d" index="3">27</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">clock_divider</arg>&gt;.
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">disp_counter</arg>&lt;<arg fmt="%d" index="2">31</arg>:<arg fmt="%d" index="3">18</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">clock_divider</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">disp_counter</arg>&lt;<arg fmt="%d" index="2">31</arg>:<arg fmt="%d" index="3">19</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">clock_divider</arg>&gt;.
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">minutes</arg>&lt;<arg fmt="%d" index="2">7</arg>:<arg fmt="%d" index="3">7</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">counter</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">blink_counter</arg>&lt;<arg fmt="%d" index="2">31</arg>:<arg fmt="%d" index="3">26</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">clock_divider</arg>&gt;.
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">seconds</arg>&lt;<arg fmt="%d" index="2">7</arg>:<arg fmt="%d" index="3">3</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">counter</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">counter_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">minutes</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">seconds</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="2999" delta="new" >Signal &apos;<arg fmt="%s" index="1">numbers</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">display</arg>&apos;, is tied to its initial value.
@@ -56,98 +50,31 @@
 <msg type="warning" file="Xst" num="3035" delta="new" >Index value(s) does not match array range for signal &lt;<arg fmt="%s" index="1">numbers</arg>&gt;, simulation mismatch.
 </msg>
 
-<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">counter</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-It will be removed from the design.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">cur_num_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">display</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">27 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;cur_num_5&gt; &lt;cur_num_6&gt; &lt;cur_num_7&gt; &lt;cur_num_8&gt; &lt;cur_num_9&gt; &lt;cur_num_10&gt; &lt;cur_num_11&gt; &lt;cur_num_12&gt; &lt;cur_num_13&gt; &lt;cur_num_14&gt; &lt;cur_num_15&gt; &lt;cur_num_16&gt; &lt;cur_num_17&gt; &lt;cur_num_18&gt; &lt;cur_num_19&gt; &lt;cur_num_20&gt; &lt;cur_num_21&gt; &lt;cur_num_22&gt; &lt;cur_num_23&gt; &lt;cur_num_24&gt; &lt;cur_num_25&gt; &lt;cur_num_26&gt; &lt;cur_num_27&gt; &lt;cur_num_28&gt; &lt;cur_num_29&gt; &lt;cur_num_30&gt; &lt;cur_num_31&gt; </arg>
-</msg>
-
 <msg type="info" file="Xst" num="3231" delta="new" >The small RAM &lt;<arg fmt="%s" index="1">Mram_numbers</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">cur_num_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">display</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">27 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;cur_num_5&gt; &lt;cur_num_6&gt; &lt;cur_num_7&gt; &lt;cur_num_8&gt; &lt;cur_num_9&gt; &lt;cur_num_10&gt; &lt;cur_num_11&gt; &lt;cur_num_12&gt; &lt;cur_num_13&gt; &lt;cur_num_14&gt; &lt;cur_num_15&gt; &lt;cur_num_16&gt; &lt;cur_num_17&gt; &lt;cur_num_18&gt; &lt;cur_num_19&gt; &lt;cur_num_20&gt; &lt;cur_num_21&gt; &lt;cur_num_22&gt; &lt;cur_num_23&gt; &lt;cur_num_24&gt; &lt;cur_num_25&gt; &lt;cur_num_26&gt; &lt;cur_num_27&gt; &lt;cur_num_28&gt; &lt;cur_num_29&gt; &lt;cur_num_30&gt; &lt;cur_num_31&gt; </arg>
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">extra_minutes_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">counter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">extra_seconds_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">counter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">extra_seconds_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">counter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">display/nums_to_display_0_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">stopwatch</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">display/nums_to_display_0_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">stopwatch</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">display/nums_to_display_0_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">stopwatch</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">display/nums_to_display_0_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">stopwatch</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/adj_counter_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">display/nums_to_display_0_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">stopwatch</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/blink_counter_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
@@ -228,103 +155,10 @@ It will be removed from the design.
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/blink_counter_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/blink_counter_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">counter/extra_minutes_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
-</msg>
-
-<msg type="info" file="Xst" num="2169" delta="new" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clock_divider/blink_clk</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">stopwatch</arg>&gt;.
 </msg>
 
 </messages>

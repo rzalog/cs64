@@ -25,6 +25,7 @@
 module counter_tb;
 
 	// Inputs
+	reg clk;
 	reg adj_clk;
 	reg counter_clk;
 	reg sel;
@@ -32,10 +33,11 @@ module counter_tb;
 	reg rst;
 
 	// Outputs
-	wire [31:0] minutes;
-	wire [31:0] seconds;
+	wire [7:0] minutes;
+	wire [7:0] seconds;
 	
 	counter uut(
+		.clk(clk),
 		.adj_clk(adj_clk),
 		.counter_clk(counter_clk),
 		.sel(sel),
@@ -44,19 +46,26 @@ module counter_tb;
 		.minutes(minutes),
 		.seconds(seconds)
 	);
-	
+
 	always begin
 		#1;
+		clk = ~clk;
+	end
+	
+	always begin
+		#10;
 		adj_clk = ~adj_clk;
-		
-		#1;
-		adj_clk = ~adj_clk;
+	end
+	
+	always begin
+		#20;
 		counter_clk = ~counter_clk;
 	end
 	
 	// Initialize inputs
 	initial begin
 		rst = 0;
+		clk = 0;
 		adj_clk = 0;
 		counter_clk = 0;
 		sel = 0;
@@ -65,17 +74,19 @@ module counter_tb;
 	
 	// Testing
 	initial begin
-		#328;
-		
-		sel = 1;
-		adj = 1;
-		#200;
-		
-		sel = 0;
-		#200;
-		
-		adj = 0;
-		#200;
+//		#328;
+//		
+//		sel = 1;
+//		adj = 1;
+//		#200;
+//		
+//		sel = 0;
+//		#200;
+//		
+//		adj = 0;
+//		#200;
+
+		#3000;
 		
 		$finish;
 	end

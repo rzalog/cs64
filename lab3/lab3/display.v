@@ -23,8 +23,8 @@ module display(disp_clk, counter_clk, minutes, seconds,
 
 	input disp_clk;
 	input counter_clk;
-	input [31:0] minutes;
-	input [31:0] seconds;
+	input [7:0] minutes;
+	input [7:0] seconds;
 	
 	output AN0;
 	output AN1;
@@ -43,11 +43,9 @@ module display(disp_clk, counter_clk, minutes, seconds,
 	reg [3:0] anodes;
 	
 	reg [6:0] numbers [9:0];
-	integer nums_to_display[3:0];
+	reg [3:0] nums_to_display[3:0];
 	
 	reg [1:0] cur_anode;
-	
-	integer cur_num;
 	
 	initial begin
 		numbers[0] = 7'b1111110;
@@ -63,27 +61,19 @@ module display(disp_clk, counter_clk, minutes, seconds,
 		
 		anodes[3:0] = 4'b1110;
 		cur_anode = 0;
-		
-		cur_num = 2;
 	end
 	
 	always @(posedge disp_clk) begin
-		nums_to_display[3] <= minutes / 10;
-		nums_to_display[2] <= minutes % 10;
-		nums_to_display[1] <= seconds / 10;
-		nums_to_display[0] <= seconds % 10;
+		nums_to_display[3][3:0] <= minutes / 10;
+		nums_to_display[2][3:0] <= minutes % 10;
+		nums_to_display[1][3:0] <= seconds / 10;
+		nums_to_display[0][3:0] <= seconds % 10;
 		
 		anodes <= {anodes[0], anodes[3:1]};
 
-		//cur_disp_value <= numbers[nums_to_display[0]];
-		//cur_disp_value <= 7'b1011111;
+		cur_disp_value <= numbers[nums_to_display[cur_anode]];
 		
-		cur_disp_value <= numbers[cur_num];
-		//cur_anode <= cur_anode + 1'b1;
-	end
-	
-	always @(posedge counter_clk) begin
-		cur_num <= (cur_num + 1) % 10;
+		cur_anode <= cur_anode + 1'b1;
 	end
 	
 	assign CA = ~cur_disp_value[6];

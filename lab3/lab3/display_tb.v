@@ -27,8 +27,8 @@ module display_tb;
 	// Inputs
 	reg disp_clk;
 	reg counter_clk;
-	reg [31:0] minutes;
-	reg [31:0] seconds;
+	reg [7:0] minutes;
+	reg [7:0] seconds;
 
 	// Outputs
 	wire AN0;
@@ -62,12 +62,16 @@ module display_tb;
 		.CG(CG)
 	);
 
+	integer counter;
+
 	initial begin
 		// Initialize Inputs
 		disp_clk = 0;
 		counter_clk = 0;
 		minutes = 0;
 		seconds = 0;
+
+		counter = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
@@ -79,10 +83,13 @@ module display_tb;
 		#1;
 		disp_clk = ~disp_clk;
 	end
-	
+		
 	always begin
 		#500;
-		counter_clk = ~counter_clk;
+		counter <= counter + 1;
+		seconds <= counter % 60;
+		minutes <= counter / 60;
+		
 	end
 		
 endmodule

@@ -1,2 +1,11 @@
-Trying to get the display to count up properly (currently counting up by 2 when it should be incrementing by 1).
-Maybe try adjusting duty cycle?
+Putting things on the board (trying to make it actually fit)
+
+Getting counter to count properly
+
+Specifically, adj and sel
+
+Might need to adjust debouncing
+
+Counts too fast
+
+In general, counter module is not working correctly right now (check the test bench)
