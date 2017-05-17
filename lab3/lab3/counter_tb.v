@@ -31,6 +31,7 @@ module counter_tb;
 	reg sel;
 	reg adj;
 	reg rst;
+	reg pause;
 
 	// Outputs
 	wire [7:0] minutes;
@@ -43,6 +44,7 @@ module counter_tb;
 		.sel(sel),
 		.adj(adj),
 		.rst(rst),
+		.pause(pause),
 		.minutes(minutes),
 		.seconds(seconds)
 	);
@@ -65,12 +67,40 @@ module counter_tb;
 	// Initialize inputs
 	initial begin
 		rst = 0;
+		pause = 0;
 		clk = 0;
 		adj_clk = 0;
 		counter_clk = 0;
 		sel = 0;
 		adj = 0;
+		
+		// Run normally (adj low)
+		#500;
+		
+		// Pause
+		pause = 1;
+		#300;
+		
+		// Unpause
+		pause = 0;
+		#200;
+		
+		// Go into adjust mode (with sel low)
+		adj = 1;
+		#100;
+		
+		// sel high
+		sel = 1;
+		#100;
+		
+		// adj low, count normally again
+		adj = 0;
+		#200;
+		
+		$finish;
 	end
-      
+	
+	
+
 endmodule
 

@@ -48,17 +48,11 @@ module clock_divider_tb;
 		// Initialize Inputs
 		clk = 0;
 		rst = 0;
-
-		// Wait 100 ns for global reset to finish
-		#100;
-        
-		// Add stimulus here
-
 	end
 	
 	always begin
 		clk = ~clk;
-		#5;
+		#1;
 	end
       
 endmodule

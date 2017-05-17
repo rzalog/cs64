@@ -31,19 +31,14 @@ module counter(clk, adj_clk, counter_clk, sel, adj, rst, pause, minutes, seconds
 	output reg [7:0] seconds;
 	
 	reg [15:0] counter;
-	reg [7:0] extra_minutes;
-	reg [7:0] extra_seconds;
 	
 	reg adj_clk_old;
 	reg counter_clk_old;
 
 	initial begin
 		counter = 0;
-		extra_minutes = 0;
-		extra_seconds = 0;
 		minutes = 0;
 		seconds = 0;
-		
 		adj_clk_old = 0;
 		counter_clk_old = 0;
 	end
@@ -51,8 +46,6 @@ module counter(clk, adj_clk, counter_clk, sel, adj, rst, pause, minutes, seconds
 	always @(posedge clk) begin
 		if (rst) begin
 			counter <= 0;
-			extra_minutes <= 0;
-			extra_seconds <= 0;
 			minutes <= 0;
 			seconds <= 0;
 		end
@@ -62,10 +55,8 @@ module counter(clk, adj_clk, counter_clk, sel, adj, rst, pause, minutes, seconds
 			
 			if (adj) begin
 				if (sel) begin
-					// extra_seconds <= (extra_seconds + 1) % 60;
 					counter <= counter + 1;
 				end else begin
-					// extra_minutes <= (extra_minutes + 1) % 100;
 					counter <= counter + 60;
 				end
 			end
