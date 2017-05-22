@@ -1,0 +1,10 @@
+Command line:
+   two_digit_ssd_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  55235
+
+Mon May 22 11:46:31 2017
+
+
+ Elaboration Time: 0.0624 sec

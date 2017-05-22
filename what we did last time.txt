@@ -1,11 +1,2 @@
-Putting things on the board (trying to make it actually fit)
-
-Getting counter to count properly
-
-Specifically, adj and sel
-
-Might need to adjust debouncing
-
-Counts too fast
-
-In general, counter module is not working correctly right now (check the test bench)
+Trying to get the basics of the peripherals to work on the board.
+Trying to get testbench for "two_digit_ssd" to work.

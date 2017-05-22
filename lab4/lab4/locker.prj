@@ -1,0 +1,3 @@
+verilog work "two_digit_ssd.v"
+verilog work "numpad_decoder.v"
+verilog work "locker.v"
