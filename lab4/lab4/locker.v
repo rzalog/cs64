@@ -26,29 +26,33 @@ module locker(
 		output [6:0] cathodes,
 		output anode
 	);
-
-
-//	test_peripherals test_peripherals(
-//		.clk(clk),
-//		.Row(Row),
-//		.Col(Col_reg),
-//		.cathodes(cathodes_reg),
-//		.anode(anode_reg)
-//	);
-
+	
 	wire [3:0] num_pad;
+	wire digit_changed;
 
 	numpad_decoder numpad_decoder(
 		.clk(clk),
 		.Row(Row),
 		.Col(Col),
-		.DecodeOut(num_pad)
+		.DecodeOut(num_pad),
+		.digit_changed(digit_changed)
+	);
+	
+	wire [3:0] first_digit;
+	wire [3:0] second_digit;
+	
+	two_digit_controller two_digit_controller(
+		.clk(clk),
+		.digit_changed(digit_changed),
+		.number_input(num_pad),
+		.first_digit(first_digit),
+		.second_digit(second_digit)
 	);
 	
 	two_digit_ssd two_digit_ssd(
 		.clk(clk),
-		.first_digit(num_pad),
-		.second_digit(num_pad),
+		.first_digit(first_digit),
+		.second_digit(second_digit),
 		.cathodes(cathodes),
 		.anode(anode)
 	);

@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: locker.prj
 
@@ -107,6 +107,8 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" into library work
 Parsing module <two_digit_ssd>.
+Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\two_digit_controller.v" into library work
+Parsing module <two_digit_controller>.
 Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\numpad_decoder.v" into library work
 Parsing module <numpad_decoder>.
 Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\locker.v" into library work
@@ -119,11 +121,14 @@ Parsing module <locker>.
 Elaborating module <locker>.
 
 Elaborating module <numpad_decoder>.
+WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\numpad_decoder.v" Line 33: Using initial value of invalid_digit since it is never assigned
+
+Elaborating module <two_digit_controller>.
 
 Elaborating module <two_digit_ssd>.
 WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 36: Using initial value of nothing since it is never assigned
-WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 64: Result of 22-bit expression is truncated to fit in 21-bit target.
-WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 83: Result of 22-bit expression is truncated to fit in 21-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 70: Result of 21-bit expression is truncated to fit in 20-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 92: Result of 21-bit expression is truncated to fit in 20-bit target.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -139,27 +144,40 @@ Synthesizing Unit <numpad_decoder>.
     Related source file is "C:\Users\152\cs64\lab4\lab4\numpad_decoder.v".
     Found 20-bit register for signal <sclk>.
     Found 4-bit register for signal <DecodeOut>.
+    Found 1-bit register for signal <row_did_not_change<2>>.
+    Found 1-bit register for signal <row_did_not_change<1>>.
+    Found 1-bit register for signal <row_did_not_change<0>>.
+    Found 1-bit register for signal <digit_changed>.
     Found 4-bit register for signal <Col>.
-    Found 20-bit adder for signal <sclk[19]_GND_2_o_add_48_OUT> created at line 146.
+    Found 20-bit adder for signal <sclk[19]_GND_2_o_add_48_OUT> created at line 179.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  28 D-type flip-flop(s).
-	inferred  13 Multiplexer(s).
+	inferred  32 D-type flip-flop(s).
+	inferred  25 Multiplexer(s).
 Unit <numpad_decoder> synthesized.
+
+Synthesizing Unit <two_digit_controller>.
+    Related source file is "C:\Users\152\cs64\lab4\lab4\two_digit_controller.v".
+    Found 4-bit register for signal <second_digit>.
+    Found 1-bit register for signal <old_digit_changed>.
+    Found 4-bit register for signal <first_digit>.
+    Summary:
+	inferred   9 D-type flip-flop(s).
+Unit <two_digit_controller> synthesized.
 
 Synthesizing Unit <two_digit_ssd>.
     Related source file is "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v".
 WARNING:Xst:2999 - Signal 'numbers', unconnected in block 'two_digit_ssd', is tied to its initial value.
 WARNING:Xst:3035 - Index value(s) does not match array range for signal <numbers>, simulation mismatch.
-    Found 10x7-bit dual-port Read Only RAM <Mram_numbers> for signal <numbers>.
+    Found 11x7-bit dual-port Read Only RAM <Mram_numbers> for signal <numbers>.
     Found 7-bit register for signal <cathodes>.
-    Found 21-bit register for signal <sclk>.
+    Found 20-bit register for signal <sclk>.
     Found 1-bit register for signal <anode>.
-    Found 21-bit adder for signal <sclk[20]_GND_3_o_add_10_OUT> created at line 83.
+    Found 20-bit adder for signal <sclk[19]_GND_4_o_add_10_OUT> created at line 92.
     Summary:
 	inferred   1 RAM(s).
 	inferred   1 Adder/Subtractor(s).
-	inferred  29 D-type flip-flop(s).
+	inferred  28 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
 Unit <two_digit_ssd> synthesized.
 
@@ -168,18 +186,17 @@ HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 1
- 10x7-bit dual-port Read Only RAM                      : 1
+ 11x7-bit dual-port Read Only RAM                      : 1
 # Adders/Subtractors                                   : 2
- 20-bit adder                                          : 1
- 21-bit adder                                          : 1
-# Registers                                            : 6
- 1-bit register                                        : 1
- 20-bit register                                       : 1
- 21-bit register                                       : 1
- 4-bit register                                        : 2
+ 20-bit adder                                          : 2
+# Registers                                            : 13
+ 1-bit register                                        : 6
+ 20-bit register                                       : 2
+ 4-bit register                                        : 4
  7-bit register                                        : 1
-# Multiplexers                                         : 14
- 4-bit 2-to-1 multiplexer                              : 13
+# Multiplexers                                         : 26
+ 1-bit 2-to-1 multiplexer                              : 14
+ 4-bit 2-to-1 multiplexer                              : 11
  7-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
@@ -189,43 +206,30 @@ Macro Statistics
 =========================================================================
 
 
-Synthesizing (advanced) Unit <locker>.
-INFO:Xst:3226 - The RAM <two_digit_ssd/Mram_numbers> will be implemented as a BLOCK RAM, absorbing the following register(s): <numpad_decoder/DecodeOut> <numpad_decoder/DecodeOut>
-    -----------------------------------------------------------------------
-    | ram_type           | Block                               |          |
-    -----------------------------------------------------------------------
-    | Port A                                                              |
-    |     aspect ratio   | 10-word x 7-bit                     |          |
-    |     mode           | read-first                          |          |
-    |     clkA           | connected to signal <clk>           | rise     |
-    |     enA            | connected to signal <numpad_decoder/_n0309_0> | low      |
-    |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <numpad_decoder/DecodeOut[3]_DecodeOut[3]_mux_66_OUT> |          |
-    |     diA            | connected to signal <GND>           |          |
-    |     doA            | connected to internal node          |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-    | Port B                                                              |
-    |     aspect ratio   | 10-word x 7-bit                     |          |
-    |     mode           | read-first                          |          |
-    |     clkB           | connected to signal <clk>           | rise     |
-    |     enB            | connected to signal <numpad_decoder/_n0309_1> | low      |
-    |     weB            | connected to signal <GND>           | high     |
-    |     addrB          | connected to signal <numpad_decoder/DecodeOut[3]_DecodeOut[3]_mux_66_OUT> |          |
-    |     diB            | connected to signal <GND>           |          |
-    |     doB            | connected to internal node          |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-Unit <locker> synthesized (advanced).
-
 Synthesizing (advanced) Unit <numpad_decoder>.
 The following registers are absorbed into counter <sclk>: 1 register on signal <sclk>.
 Unit <numpad_decoder> synthesized (advanced).
 
 Synthesizing (advanced) Unit <two_digit_ssd>.
 The following registers are absorbed into counter <sclk>: 1 register on signal <sclk>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_numbers> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 11-word x 7-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <second_digit>  |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 11-word x 7-bit                     |          |
+    |     weB            | connected to signal <GND>           | high     |
+    |     addrB          | connected to signal <first_digit>   |          |
+    |     diB            | connected to signal <GND>           |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
 Unit <two_digit_ssd> synthesized (advanced).
 
 =========================================================================
@@ -233,14 +237,14 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 1
- 10x7-bit dual-port block Read Only RAM                : 1
+ 11x7-bit dual-port distributed Read Only RAM          : 1
 # Counters                                             : 2
- 20-bit up counter                                     : 1
- 21-bit up counter                                     : 1
-# Registers                                            : 16
- Flip-Flops                                            : 16
-# Multiplexers                                         : 14
- 4-bit 2-to-1 multiplexer                              : 13
+ 20-bit up counter                                     : 2
+# Registers                                            : 29
+ Flip-Flops                                            : 29
+# Multiplexers                                         : 26
+ 1-bit 2-to-1 multiplexer                              : 14
+ 4-bit 2-to-1 multiplexer                              : 11
  7-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
@@ -250,6 +254,12 @@ Macro Statistics
 =========================================================================
 
 Optimizing unit <locker> ...
+
+Optimizing unit <numpad_decoder> ...
+
+Optimizing unit <two_digit_controller> ...
+
+Optimizing unit <two_digit_ssd> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -261,8 +271,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 57
- Flip-Flops                                            : 57
+# Registers                                            : 69
+ Flip-Flops                                            : 69
 
 =========================================================================
 
@@ -285,25 +295,23 @@ Top Level Output File Name         : locker.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 192
+# BELS                             : 238
 #      GND                         : 1
-#      INV                         : 2
-#      LUT1                        : 39
-#      LUT2                        : 25
-#      LUT3                        : 9
-#      LUT4                        : 9
-#      LUT5                        : 3
-#      LUT6                        : 23
-#      MUXCY                       : 39
+#      INV                         : 3
+#      LUT1                        : 38
+#      LUT2                        : 4
+#      LUT3                        : 31
+#      LUT4                        : 21
+#      LUT5                        : 7
+#      LUT6                        : 54
+#      MUXCY                       : 38
 #      VCC                         : 1
-#      XORCY                       : 41
-# FlipFlops/Latches                : 57
-#      FD                          : 21
-#      FDE                         : 8
-#      FDR                         : 21
-#      FDRE                        : 7
-# RAMS                             : 1
-#      RAMB8BWER                   : 1
+#      XORCY                       : 40
+# FlipFlops/Latches                : 69
+#      FD                          : 46
+#      FDE                         : 12
+#      FDRE                        : 9
+#      FDSE                        : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 16
@@ -317,15 +325,15 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              57  out of  18224     0%  
- Number of Slice LUTs:                  110  out of   9112     1%  
-    Number used as Logic:               110  out of   9112     1%  
+ Number of Slice Registers:              69  out of  18224     0%  
+ Number of Slice LUTs:                  158  out of   9112     1%  
+    Number used as Logic:               158  out of   9112     1%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    110
-   Number with an unused Flip Flop:      53  out of    110    48%  
-   Number with an unused LUT:             0  out of    110     0%  
-   Number of fully used LUT-FF pairs:    57  out of    110    51%  
+ Number of LUT Flip Flop pairs used:    164
+   Number with an unused Flip Flop:      95  out of    164    57%  
+   Number with an unused LUT:             6  out of    164     3%  
+   Number of fully used LUT-FF pairs:    63  out of    164    38%  
    Number of unique control sets:         5
 
 IO Utilization: 
@@ -333,8 +341,6 @@ IO Utilization:
  Number of bonded IOBs:                  17  out of    232     7%  
 
 Specific Feature Utilization:
- Number of Block RAM/FIFO:                1  out of     32     3%  
-    Number using Block RAM only:          1
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
 
 ---------------------------
@@ -358,7 +364,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 58    |
+clk                                | BUFGP                  | 69    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -369,8 +375,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 5.670ns (Maximum Frequency: 176.376MHz)
-   Minimum input arrival time before clock: 4.646ns
+   Minimum period: 5.593ns (Maximum Frequency: 178.787MHz)
+   Minimum input arrival time before clock: 4.993ns
    Maximum output required time after clock: 3.634ns
    Maximum combinational path delay: No path found
 
@@ -380,65 +386,66 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 5.670ns (frequency: 176.376MHz)
-  Total number of paths / destination ports: 5573 / 110
+  Clock period: 5.593ns (frequency: 178.787MHz)
+  Total number of paths / destination ports: 5142 / 103
 -------------------------------------------------------------------------
-Delay:               5.670ns (Levels of Logic = 4)
-  Source:            numpad_decoder/sclk_19 (FF)
-  Destination:       two_digit_ssd/Mram_numbers (RAM)
+Delay:               5.593ns (Levels of Logic = 4)
+  Source:            numpad_decoder/sclk_15 (FF)
+  Destination:       numpad_decoder/Col_3 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: numpad_decoder/sclk_19 to two_digit_ssd/Mram_numbers
+  Data Path: numpad_decoder/sclk_15 to numpad_decoder/Col_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               3   0.447   1.015  numpad_decoder/sclk_19 (numpad_decoder/sclk_19)
-     LUT6:I0->O            3   0.203   0.755  numpad_decoder/sclk[19]_GND_2_o_equal_26_o<19>11 (numpad_decoder/sclk[19]_GND_2_o_equal_26_o<19>11)
-     LUT6:I4->O           10   0.203   1.085  numpad_decoder/sclk[19]_GND_2_o_equal_26_o<19>21 (numpad_decoder/sclk[19]_GND_2_o_equal_26_o<19>2)
-     LUT5:I2->O            5   0.205   0.715  numpad_decoder/_n0325_inv (numpad_decoder/_n0325_inv)
-     LUT6:I5->O            2   0.205   0.616  numpad_decoder/_n0309_0_inv (numpad_decoder/_n0309_0_inv)
-     RAMB8BWER:ENAWREN         0.220          two_digit_ssd/Mram_numbers
+     FD:C->Q               3   0.447   0.898  numpad_decoder/sclk_15 (numpad_decoder/sclk_15)
+     LUT4:I0->O            3   0.203   0.879  numpad_decoder/sclk[19]_GND_2_o_equal_14_o<19>221 (numpad_decoder/sclk[19]_GND_2_o_equal_14_o<19>22)
+     LUT6:I3->O           32   0.205   1.539  numpad_decoder/sclk[19]_GND_2_o_equal_14_o<19>23 (numpad_decoder/sclk[19]_GND_2_o_equal_14_o<19>2)
+     LUT4:I0->O            4   0.203   0.912  numpad_decoder/_n0309_inv1_rstpot (numpad_decoder/_n0309_inv1_rstpot)
+     LUT3:I0->O            1   0.205   0.000  numpad_decoder/Col_0_dpot (numpad_decoder/Col_0_dpot)
+     FDE:D                     0.102          numpad_decoder/Col_0
     ----------------------------------------
-    Total                      5.670ns (1.483ns logic, 4.187ns route)
-                                       (26.2% logic, 73.8% route)
+    Total                      5.593ns (1.365ns logic, 4.228ns route)
+                                       (24.4% logic, 75.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 78 / 18
+  Total number of paths / destination ports: 104 / 15
 -------------------------------------------------------------------------
-Offset:              4.646ns (Levels of Logic = 3)
-  Source:            Row<2> (PAD)
-  Destination:       numpad_decoder/DecodeOut_0 (FF)
+Offset:              4.993ns (Levels of Logic = 4)
+  Source:            Row<1> (PAD)
+  Destination:       numpad_decoder/row_did_not_change_2 (FF)
   Destination Clock: clk rising
 
-  Data Path: Row<2> to numpad_decoder/DecodeOut_0
+  Data Path: Row<1> to numpad_decoder/row_did_not_change_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             8   1.222   1.031  Row_2_IBUF (Row_2_IBUF)
-     LUT4:I1->O            2   0.205   0.981  numpad_decoder/_n0309_SW1 (N22)
-     LUT6:I0->O            4   0.203   0.683  numpad_decoder/_n0309_inv1 (numpad_decoder/_n0309_inv)
-     FDE:CE                    0.322          numpad_decoder/DecodeOut_0
+     IBUF:I->O            16   1.222   1.252  Row_1_IBUF (Row_1_IBUF)
+     LUT4:I0->O            2   0.203   0.981  numpad_decoder/PWR_2_o_GND_2_o_MUX_11_o1 (numpad_decoder/PWR_2_o_GND_2_o_MUX_11_o)
+     LUT6:I0->O            1   0.203   0.827  numpad_decoder/_n0258_inv2_SW0 (N47)
+     LUT6:I2->O            1   0.203   0.000  numpad_decoder/row_did_not_change_2_rstpot (numpad_decoder/row_did_not_change_2_rstpot)
+     FD:D                      0.102          numpad_decoder/row_did_not_change_2
     ----------------------------------------
-    Total                      4.646ns (1.952ns logic, 2.694ns route)
-                                       (42.0% logic, 58.0% route)
+    Total                      4.993ns (1.933ns logic, 3.060ns route)
+                                       (38.7% logic, 61.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 12 / 12
 -------------------------------------------------------------------------
 Offset:              3.634ns (Levels of Logic = 1)
-  Source:            two_digit_ssd/anode (FF)
-  Destination:       anode (PAD)
+  Source:            numpad_decoder/Col_3 (FF)
+  Destination:       Col<3> (PAD)
   Source Clock:      clk rising
 
-  Data Path: two_digit_ssd/anode to anode
+  Data Path: numpad_decoder/Col_3 to Col<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.616  two_digit_ssd/anode (two_digit_ssd/anode)
-     OBUF:I->O                 2.571          anode_OBUF (anode)
+     FDE:C->Q              2   0.447   0.616  numpad_decoder/Col_3 (numpad_decoder/Col_3)
+     OBUF:I->O                 2.571          Col_3_OBUF (Col<3>)
     ----------------------------------------
     Total                      3.634ns (3.018ns logic, 0.616ns route)
                                        (83.0% logic, 17.0% route)
@@ -453,20 +460,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    5.670|         |         |         |
+clk            |    5.593|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.69 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 8.40 secs
  
 --> 
 
-Total memory usage is 256080 kilobytes
+Total memory usage is 257488 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    5 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

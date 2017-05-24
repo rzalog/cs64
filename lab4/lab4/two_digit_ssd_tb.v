@@ -47,14 +47,11 @@ module two_digit_ssd_tb;
 		clk = 0;
 		first_digit = 4;
 		second_digit = 5;
-
-		#100;
-		$finish;
-
 	end
 	
 	always begin
 		clk = ~clk;
+		#1;
 	end
       
 endmodule

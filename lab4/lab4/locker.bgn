@@ -5,14 +5,10 @@ C:\Xilinx\14.6\ISE_DS\ISE\.
    "locker" is an NCD, version 3.2, device xc6slx16, package csg324, speed -3
 Opened constraints file locker.pcf.
 
-Mon May 22 11:40:40 2017
+Wed May 24 11:49:28 2017
 
 C:\Xilinx\14.6\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 locker.ncd 
 
-INFO:Bitgen:341 - This design is using one or more 9K Block RAMs (RAMB8BWER). 
-   9K Block RAM initialization data, both user defined and default, requires a
-   special bit stream format.  For more information, please reference Xilinx
-   Answer Record 39999.
 Summary of Bitgen Options:
 +----------------------+----------------------+
 | Option Name          | Current Setting      |
@@ -132,12 +128,7 @@ There were 0 CONFIG constraint(s) processed from locker.pcf.
 
 
 Running DRC.
-WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
-   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
-   default, may be incorrect and should not be used.  For more information,
-   please reference Xilinx Answer Record 39999.
-DRC detected 0 errors and 1 warnings.  Please see the previously displayed
-individual error or warning messages for more details.
+DRC detected 0 errors and 0 warnings.
 INFO:Security:54 - 'xc6slx16' is a WebPack part.
 WARNING:Security:42 - Your software subscription period has lapsed. Your current
 version of Xilinx tools will continue to function, but you no longer qualify for

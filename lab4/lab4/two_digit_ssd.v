@@ -28,12 +28,14 @@ module two_digit_ssd(
 
 	// 1111 in one of the digits corresponds to "nothing" i.e. a blank value
 
-	reg [20:0] sclk;
+	reg [19:0] sclk;
 
-	reg [6:0] numbers[9:0];
+	reg [6:0] numbers[10:0];
 	reg [6:0] nothing;
 	
 	initial begin
+		sclk = 0;
+	
 		numbers[0] = 7'b1111110;
 		numbers[1] = 7'b0110000;
 		numbers[2] = 7'b1101101;
@@ -46,11 +48,15 @@ module two_digit_ssd(
 		numbers[9] = 7'b1111011;
 		
 		nothing = 7'b0000000;
+		numbers[10] = nothing;
 	end
 	
 	always @(posedge clk) begin
 		// 4ms
-		if(sclk == 20'b01100001101010000000) begin
+		if(
+			sclk == 20'b01100001101010000000
+			) 
+		begin
 			// First digit
 			anode <= 0;
 			
@@ -65,7 +71,10 @@ module two_digit_ssd(
 		end
 		
 		// 8ms
-		else if(sclk == 20'b11000011010100000000) begin
+		else if(//sclk == 3'b111
+			sclk == 20'b11000011010100000000
+			)
+		begin
 			// Second digit
 			anode <= 1;
 			
