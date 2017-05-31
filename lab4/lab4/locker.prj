@@ -1,4 +1,8 @@
 verilog work "two_digit_ssd.v"
 verilog work "two_digit_controller.v"
 verilog work "numpad_decoder.v"
+verilog work "main_controller.v"
+verilog work "four_digit_ssd.v"
+verilog work "four_digit_controller.v"
+verilog work "debouncer.v"
 verilog work "locker.v"

@@ -22,6 +22,7 @@ module two_digit_controller(
     input clk,
     input digit_changed,
     input [3:0] number_input,
+	 input [7:0] state,
     output reg [3:0] first_digit,
     output reg [3:0] second_digit
     );
@@ -37,11 +38,16 @@ module two_digit_controller(
 	end
 	
 	always @(posedge clk) begin
-		if (digit_changed & ~old_digit_changed) begin
-			first_digit <= second_digit;
-			second_digit <= number_input;
+		if (state == 1 || state == 2) begin
+			if (digit_changed & ~old_digit_changed) begin
+				first_digit <= second_digit;
+				second_digit <= number_input;
+			end
+		end else begin
+			first_digit <= blank_digit;
+			second_digit <= blank_digit;
 		end
-		
+
 		old_digit_changed <= digit_changed;
 	end
 

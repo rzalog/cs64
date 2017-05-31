@@ -22,13 +22,40 @@ module locker(
 		input clk,
 		input [3:0] Row,
 		
+		input enter,
+		
 		output [3:0] Col,
-		output [6:0] cathodes,
-		output anode
+		output [6:0] cathodes_t,
+		output anode_t,
+		
+		output [6:0] cathodes_f,
+		output [3:0] anodes_f
 	);
 	
+	wire enter_d;
+		
 	wire [3:0] num_pad;
 	wire digit_changed;
+
+	wire [7:0] state;
+	
+	wire [3:0] first_digit;
+	wire [3:0] second_digit;
+
+	debouncer debouncer(
+		.clk(clk),
+		.enter(enter),
+		.enter_d(enter_d)
+	);
+	
+	main_controller main_controller(
+		.clk(clk),
+		.enter(enter_d),
+		.state(state),
+		
+		.first_digit(first_digit),
+		.second_digit(second_digit)
+	);
 
 	numpad_decoder numpad_decoder(
 		.clk(clk),
@@ -37,14 +64,12 @@ module locker(
 		.DecodeOut(num_pad),
 		.digit_changed(digit_changed)
 	);
-	
-	wire [3:0] first_digit;
-	wire [3:0] second_digit;
-	
+
 	two_digit_controller two_digit_controller(
 		.clk(clk),
 		.digit_changed(digit_changed),
 		.number_input(num_pad),
+		.state(state),
 		.first_digit(first_digit),
 		.second_digit(second_digit)
 	);
@@ -53,8 +78,23 @@ module locker(
 		.clk(clk),
 		.first_digit(first_digit),
 		.second_digit(second_digit),
-		.cathodes(cathodes),
-		.anode(anode)
+		.cathodes(cathodes_t),
+		.anode(anode_t)
 	);
-		
+	
+	wire [2:0] to_display;
+	
+	four_digit_controller four_digit_controller(
+		.clk(clk),
+		.state(state),
+		.to_display(to_display)
+	);
+	
+	four_digit_ssd four_digit_ssd(
+		.clk(clk),
+		.to_display(to_display),
+		.cathodes(cathodes_f),
+		.anodes(anodes_f)
+	);
+	
 endmodule

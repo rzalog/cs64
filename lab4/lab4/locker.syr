@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
@@ -111,6 +111,14 @@ Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\two_digit_controller.v" into
 Parsing module <two_digit_controller>.
 Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\numpad_decoder.v" into library work
 Parsing module <numpad_decoder>.
+Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\main_controller.v" into library work
+Parsing module <main_controller>.
+Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\four_digit_ssd.v" into library work
+Parsing module <four_digit_ssd>.
+Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\four_digit_controller.v" into library work
+Parsing module <four_digit_controller>.
+Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\debouncer.v" into library work
+Parsing module <debouncer>.
 Analyzing Verilog file "C:\Users\152\cs64\lab4\lab4\locker.v" into library work
 Parsing module <locker>.
 
@@ -120,15 +128,29 @@ Parsing module <locker>.
 
 Elaborating module <locker>.
 
+Elaborating module <debouncer>.
+WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\debouncer.v" Line 42: Result of 20-bit expression is truncated to fit in 19-bit target.
+
+Elaborating module <main_controller>.
+WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\main_controller.v" Line 40: Using initial value of bad_digit since it is never assigned
+WARNING:HDLCompiler:1127 - "C:\Users\152\cs64\lab4\lab4\main_controller.v" Line 49: Assignment to first_val_digit ignored, since the identifier is never used
+
 Elaborating module <numpad_decoder>.
 WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\numpad_decoder.v" Line 33: Using initial value of invalid_digit since it is never assigned
 
 Elaborating module <two_digit_controller>.
+WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\two_digit_controller.v" Line 33: Using initial value of blank_digit since it is never assigned
 
 Elaborating module <two_digit_ssd>.
 WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 36: Using initial value of nothing since it is never assigned
 WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 70: Result of 21-bit expression is truncated to fit in 20-bit target.
 WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 92: Result of 21-bit expression is truncated to fit in 20-bit target.
+
+Elaborating module <four_digit_controller>.
+
+Elaborating module <four_digit_ssd>.
+WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\four_digit_ssd.v" Line 89: Result of 3-bit expression is truncated to fit in 2-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\four_digit_ssd.v" Line 92: Result of 19-bit expression is truncated to fit in 18-bit target.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -140,6 +162,38 @@ Synthesizing Unit <locker>.
 	no macro.
 Unit <locker> synthesized.
 
+Synthesizing Unit <debouncer>.
+    Related source file is "C:\Users\152\cs64\lab4\lab4\debouncer.v".
+    Found 1-bit register for signal <old_enter>.
+    Found 19-bit register for signal <sclk>.
+    Found 1-bit register for signal <enter_d>.
+    Found 19-bit adder for signal <sclk[18]_GND_2_o_add_2_OUT> created at line 42.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  21 D-type flip-flop(s).
+Unit <debouncer> synthesized.
+
+Synthesizing Unit <main_controller>.
+    Related source file is "C:\Users\152\cs64\lab4\lab4\main_controller.v".
+    Found 1-bit register for signal <enter_pressed>.
+    Found 1-bit register for signal <old_enter>.
+    Found 8-bit register for signal <state>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 10                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 00000000                                       |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   2 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+Unit <main_controller> synthesized.
+
 Synthesizing Unit <numpad_decoder>.
     Related source file is "C:\Users\152\cs64\lab4\lab4\numpad_decoder.v".
     Found 20-bit register for signal <sclk>.
@@ -149,7 +203,7 @@ Synthesizing Unit <numpad_decoder>.
     Found 1-bit register for signal <row_did_not_change<0>>.
     Found 1-bit register for signal <digit_changed>.
     Found 4-bit register for signal <Col>.
-    Found 20-bit adder for signal <sclk[19]_GND_2_o_add_48_OUT> created at line 179.
+    Found 20-bit adder for signal <sclk[19]_GND_4_o_add_48_OUT> created at line 179.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
@@ -163,6 +217,7 @@ Synthesizing Unit <two_digit_controller>.
     Found 4-bit register for signal <first_digit>.
     Summary:
 	inferred   9 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
 Unit <two_digit_controller> synthesized.
 
 Synthesizing Unit <two_digit_ssd>.
@@ -173,7 +228,7 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <numbers
     Found 7-bit register for signal <cathodes>.
     Found 20-bit register for signal <sclk>.
     Found 1-bit register for signal <anode>.
-    Found 20-bit adder for signal <sclk[19]_GND_4_o_add_10_OUT> created at line 92.
+    Found 20-bit adder for signal <sclk[19]_GND_6_o_add_10_OUT> created at line 92.
     Summary:
 	inferred   1 RAM(s).
 	inferred   1 Adder/Subtractor(s).
@@ -181,23 +236,73 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <numbers
 	inferred   1 Multiplexer(s).
 Unit <two_digit_ssd> synthesized.
 
+Synthesizing Unit <four_digit_controller>.
+    Related source file is "C:\Users\152\cs64\lab4\lab4\four_digit_controller.v".
+    Found 3-bit register for signal <to_display>.
+    Summary:
+	inferred   3 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <four_digit_controller> synthesized.
+
+Synthesizing Unit <four_digit_ssd>.
+    Related source file is "C:\Users\152\cs64\lab4\lab4\four_digit_ssd.v".
+WARNING:Xst:2999 - Signal 'words_to_display_4', unconnected in block 'four_digit_ssd', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'words_to_display_3', unconnected in block 'four_digit_ssd', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'words_to_display_2', unconnected in block 'four_digit_ssd', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'words_to_display_1', unconnected in block 'four_digit_ssd', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'words_to_display_0', unconnected in block 'four_digit_ssd', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'words_to_display_5', unconnected in block 'four_digit_ssd', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'words_to_display_6', unconnected in block 'four_digit_ssd', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'words_to_display_7', unconnected in block 'four_digit_ssd', is tied to its initial value.
+    Found 4x7-bit single-port Read Only RAM <Mram_words_to_display_4> for signal <words_to_display_4>.
+    Found 4x7-bit single-port Read Only RAM <Mram_words_to_display_3> for signal <words_to_display_3>.
+    Found 4x7-bit single-port Read Only RAM <Mram_words_to_display_2> for signal <words_to_display_2>.
+    Found 4x7-bit single-port Read Only RAM <Mram_words_to_display_1> for signal <words_to_display_1>.
+    Found 4x7-bit single-port Read Only RAM <Mram_words_to_display_0> for signal <words_to_display_0>.
+    Found 4x7-bit single-port Read Only RAM <Mram_words_to_display_5> for signal <words_to_display_5>.
+    Found 4x7-bit single-port Read Only RAM <Mram_words_to_display_6> for signal <words_to_display_6>.
+    Found 4x7-bit single-port Read Only RAM <Mram_words_to_display_7> for signal <words_to_display_7>.
+    Found 4-bit register for signal <anodes>.
+    Found 2-bit register for signal <cur_anode>.
+    Found 18-bit register for signal <sclk>.
+    Found 7-bit register for signal <cathodes>.
+    Found 2-bit adder for signal <cur_anode[1]_GND_8_o_add_4_OUT> created at line 89.
+    Found 18-bit adder for signal <sclk[17]_GND_8_o_add_5_OUT> created at line 92.
+    Summary:
+	inferred   8 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  31 D-type flip-flop(s).
+Unit <four_digit_ssd> synthesized.
+
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 1
+# RAMs                                                 : 9
  11x7-bit dual-port Read Only RAM                      : 1
-# Adders/Subtractors                                   : 2
+ 4x7-bit single-port Read Only RAM                     : 8
+# Adders/Subtractors                                   : 5
+ 18-bit adder                                          : 1
+ 19-bit adder                                          : 1
+ 2-bit adder                                           : 1
  20-bit adder                                          : 2
-# Registers                                            : 13
- 1-bit register                                        : 6
+# Registers                                            : 23
+ 1-bit register                                        : 10
+ 18-bit register                                       : 1
+ 19-bit register                                       : 1
+ 2-bit register                                        : 1
  20-bit register                                       : 2
- 4-bit register                                        : 4
- 7-bit register                                        : 1
-# Multiplexers                                         : 26
+ 3-bit register                                        : 1
+ 4-bit register                                        : 5
+ 7-bit register                                        : 2
+# Multiplexers                                         : 29
  1-bit 2-to-1 multiplexer                              : 14
- 4-bit 2-to-1 multiplexer                              : 11
+ 3-bit 2-to-1 multiplexer                              : 1
+ 4-bit 2-to-1 multiplexer                              : 13
  7-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+# Xors                                                 : 12
+ 1-bit xor2                                            : 12
 
 =========================================================================
 
@@ -205,6 +310,103 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+
+Synthesizing (advanced) Unit <debouncer>.
+The following registers are absorbed into counter <sclk>: 1 register on signal <sclk>.
+Unit <debouncer> synthesized (advanced).
+
+Synthesizing (advanced) Unit <four_digit_ssd>.
+The following registers are absorbed into counter <sclk>: 1 register on signal <sclk>.
+The following registers are absorbed into counter <cur_anode>: 1 register on signal <cur_anode>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_words_to_display_4> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 7-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <cur_anode>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_words_to_display_3> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 7-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <cur_anode>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_words_to_display_2> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 7-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <cur_anode>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_words_to_display_1> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 7-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <cur_anode>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_words_to_display_0> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 7-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <cur_anode>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_words_to_display_5> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 7-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <cur_anode>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_words_to_display_6> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 7-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <cur_anode>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_words_to_display_7> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 7-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <cur_anode>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <four_digit_ssd> synthesized (advanced).
 
 Synthesizing (advanced) Unit <numpad_decoder>.
 The following registers are absorbed into counter <sclk>: 1 register on signal <sclk>.
@@ -236,22 +438,38 @@ Unit <two_digit_ssd> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 1
+# RAMs                                                 : 9
  11x7-bit dual-port distributed Read Only RAM          : 1
-# Counters                                             : 2
+ 4x7-bit single-port distributed Read Only RAM         : 8
+# Counters                                             : 5
+ 18-bit up counter                                     : 1
+ 19-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
  20-bit up counter                                     : 2
-# Registers                                            : 29
- Flip-Flops                                            : 29
-# Multiplexers                                         : 26
+# Registers                                            : 47
+ Flip-Flops                                            : 47
+# Multiplexers                                         : 28
  1-bit 2-to-1 multiplexer                              : 14
- 4-bit 2-to-1 multiplexer                              : 11
+ 4-bit 2-to-1 multiplexer                              : 13
  7-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+# Xors                                                 : 12
+ 1-bit xor2                                            : 12
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <state[1:2]> with sequential encoding.
+----------------------
+ State    | Encoding
+----------------------
+ 00000000 | 00
+ 00000010 | 01
+ 00000001 | 10
+----------------------
 
 Optimizing unit <locker> ...
 
@@ -261,9 +479,11 @@ Optimizing unit <two_digit_controller> ...
 
 Optimizing unit <two_digit_ssd> ...
 
+Optimizing unit <four_digit_ssd> ...
+
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block locker, actual ratio is 1.
+Found area constraint ratio of 100 (+ 5) on block locker, actual ratio is 2.
 
 Final Macro Processing ...
 
@@ -271,8 +491,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 69
- Flip-Flops                                            : 69
+# Registers                                            : 128
+ Flip-Flops                                            : 128
 
 =========================================================================
 
@@ -295,28 +515,29 @@ Top Level Output File Name         : locker.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 238
+# BELS                             : 382
 #      GND                         : 1
-#      INV                         : 3
-#      LUT1                        : 38
-#      LUT2                        : 4
-#      LUT3                        : 31
-#      LUT4                        : 21
-#      LUT5                        : 7
-#      LUT6                        : 54
-#      MUXCY                       : 38
+#      INV                         : 6
+#      LUT1                        : 73
+#      LUT2                        : 9
+#      LUT3                        : 40
+#      LUT4                        : 26
+#      LUT5                        : 14
+#      LUT6                        : 62
+#      MUXCY                       : 73
 #      VCC                         : 1
-#      XORCY                       : 40
-# FlipFlops/Latches                : 69
-#      FD                          : 46
-#      FDE                         : 12
+#      XORCY                       : 77
+# FlipFlops/Latches                : 128
+#      FD                          : 50
+#      FDE                         : 30
+#      FDR                         : 37
 #      FDRE                        : 9
 #      FDSE                        : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 16
-#      IBUF                        : 4
-#      OBUF                        : 12
+# IO Buffers                       : 28
+#      IBUF                        : 5
+#      OBUF                        : 23
 
 Device utilization summary:
 ---------------------------
@@ -325,20 +546,20 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              69  out of  18224     0%  
- Number of Slice LUTs:                  158  out of   9112     1%  
-    Number used as Logic:               158  out of   9112     1%  
+ Number of Slice Registers:             128  out of  18224     0%  
+ Number of Slice LUTs:                  230  out of   9112     2%  
+    Number used as Logic:               230  out of   9112     2%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    164
-   Number with an unused Flip Flop:      95  out of    164    57%  
-   Number with an unused LUT:             6  out of    164     3%  
-   Number of fully used LUT-FF pairs:    63  out of    164    38%  
-   Number of unique control sets:         5
+ Number of LUT Flip Flop pairs used:    235
+   Number with an unused Flip Flop:     107  out of    235    45%  
+   Number with an unused LUT:             5  out of    235     2%  
+   Number of fully used LUT-FF pairs:   123  out of    235    52%  
+   Number of unique control sets:        10
 
 IO Utilization: 
- Number of IOs:                          17
- Number of bonded IOBs:                  17  out of    232     7%  
+ Number of IOs:                          29
+ Number of bonded IOBs:                  29  out of    232    12%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -364,7 +585,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 69    |
+clk                                | BUFGP                  | 128   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -387,21 +608,21 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 5.593ns (frequency: 178.787MHz)
-  Total number of paths / destination ports: 5142 / 103
+  Total number of paths / destination ports: 6581 / 216
 -------------------------------------------------------------------------
 Delay:               5.593ns (Levels of Logic = 4)
-  Source:            numpad_decoder/sclk_15 (FF)
+  Source:            numpad_decoder/sclk_17 (FF)
   Destination:       numpad_decoder/Col_3 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: numpad_decoder/sclk_15 to numpad_decoder/Col_3
+  Data Path: numpad_decoder/sclk_17 to numpad_decoder/Col_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               3   0.447   0.898  numpad_decoder/sclk_15 (numpad_decoder/sclk_15)
-     LUT4:I0->O            3   0.203   0.879  numpad_decoder/sclk[19]_GND_2_o_equal_14_o<19>221 (numpad_decoder/sclk[19]_GND_2_o_equal_14_o<19>22)
-     LUT6:I3->O           32   0.205   1.539  numpad_decoder/sclk[19]_GND_2_o_equal_14_o<19>23 (numpad_decoder/sclk[19]_GND_2_o_equal_14_o<19>2)
+     FD:C->Q               3   0.447   0.898  numpad_decoder/sclk_17 (numpad_decoder/sclk_17)
+     LUT4:I0->O            3   0.203   0.879  numpad_decoder/sclk[19]_GND_4_o_equal_14_o<19>221 (numpad_decoder/sclk[19]_GND_4_o_equal_14_o<19>22)
+     LUT6:I3->O           32   0.205   1.539  numpad_decoder/sclk[19]_GND_4_o_equal_14_o<19>23 (numpad_decoder/sclk[19]_GND_4_o_equal_14_o<19>2)
      LUT4:I0->O            4   0.203   0.912  numpad_decoder/_n0309_inv1_rstpot (numpad_decoder/_n0309_inv1_rstpot)
      LUT3:I0->O            1   0.205   0.000  numpad_decoder/Col_0_dpot (numpad_decoder/Col_0_dpot)
      FDE:D                     0.102          numpad_decoder/Col_0
@@ -411,7 +632,7 @@ Delay:               5.593ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 104 / 15
+  Total number of paths / destination ports: 106 / 17
 -------------------------------------------------------------------------
 Offset:              4.993ns (Levels of Logic = 4)
   Source:            Row<1> (PAD)
@@ -423,8 +644,8 @@ Offset:              4.993ns (Levels of Logic = 4)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            16   1.222   1.252  Row_1_IBUF (Row_1_IBUF)
-     LUT4:I0->O            2   0.203   0.981  numpad_decoder/PWR_2_o_GND_2_o_MUX_11_o1 (numpad_decoder/PWR_2_o_GND_2_o_MUX_11_o)
-     LUT6:I0->O            1   0.203   0.827  numpad_decoder/_n0258_inv2_SW0 (N47)
+     LUT4:I0->O            2   0.203   0.981  numpad_decoder/PWR_4_o_GND_4_o_MUX_40_o1 (numpad_decoder/PWR_4_o_GND_4_o_MUX_40_o)
+     LUT6:I0->O            1   0.203   0.827  numpad_decoder/_n0258_inv2_SW0 (N50)
      LUT6:I2->O            1   0.203   0.000  numpad_decoder/row_did_not_change_2_rstpot (numpad_decoder/row_did_not_change_2_rstpot)
      FD:D                      0.102          numpad_decoder/row_did_not_change_2
     ----------------------------------------
@@ -433,7 +654,7 @@ Offset:              4.993ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 12 / 12
+  Total number of paths / destination ports: 23 / 23
 -------------------------------------------------------------------------
 Offset:              3.634ns (Levels of Logic = 1)
   Source:            numpad_decoder/Col_3 (FF)
@@ -466,14 +687,14 @@ clk            |    5.593|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 8.40 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 8.83 secs
  
 --> 
 
-Total memory usage is 257488 kilobytes
+Total memory usage is 259152 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    6 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings :   20 (   0 filtered)
+Number of infos    :    9 (   0 filtered)
 

@@ -1,7 +1,7 @@
 Release 14.6 par P.68d (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-CS152A-03::  Wed May 24 11:49:08 2017
+CS152A-03::  Wed May 31 11:48:24 2017
 
 par -w -intstyle ise -ol high -mt off locker_map.ncd locker.ncd locker.pcf 
 
@@ -32,30 +32,30 @@ Device speed data version:  "PRODUCTION 1.23 2013-06-08".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                    69 out of  18,224    1%
-    Number used as Flip Flops:                  69
+  Number of Slice Registers:                   128 out of  18,224    1%
+    Number used as Flip Flops:                 128
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        133 out of   9,112    1%
-    Number used as logic:                      131 out of   9,112    1%
-      Number using O6 output only:              72
-      Number using O5 output only:              36
-      Number using O5 and O6:                   23
+  Number of Slice LUTs:                        194 out of   9,112    2%
+    Number used as logic:                      190 out of   9,112    2%
+      Number using O6 output only:              85
+      Number using O5 output only:              69
+      Number using O5 and O6:                   36
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   2,176    0%
-    Number used exclusively as route-thrus:      2
+    Number used exclusively as route-thrus:      4
       Number with same-slice register load:      0
-      Number with same-slice carry load:         2
+      Number with same-slice carry load:         4
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    40 out of   2,278    1%
-  Number of MUXCYs used:                        40 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:          136
-    Number with an unused Flip Flop:            78 out of     136   57%
-    Number with an unused LUT:                   3 out of     136    2%
-    Number of fully used LUT-FF pairs:          55 out of     136   40%
+  Number of occupied Slices:                    64 out of   2,278    2%
+  Number of MUXCYs used:                        80 out of   4,556    1%
+  Number of LUT Flip Flop pairs used:          198
+    Number with an unused Flip Flop:            87 out of     198   43%
+    Number with an unused LUT:                   4 out of     198    2%
+    Number of fully used LUT-FF pairs:         107 out of     198   54%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -66,8 +66,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        17 out of     232    7%
-    Number of LOCed IOBs:                       17 out of      17  100%
+  Number of bonded IOBs:                        29 out of     232   12%
+    Number of LOCed IOBs:                       29 out of      29  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -104,13 +104,13 @@ Finished initial Timing Analysis.  REAL time: 4 secs
 Starting Router
 
 
-Phase  1  : 643 unrouted;      REAL time: 4 secs 
+Phase  1  : 890 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 562 unrouted;      REAL time: 4 secs 
+Phase  2  : 744 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 202 unrouted;      REAL time: 5 secs 
+Phase  3  : 225 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 202 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  4  : 225 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
 Updating file: locker.ncd with current fully routed design.
 
@@ -146,8 +146,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     4.941ns|     N/A|           0
-  _BUFGP                                    | HOLD        |     0.413ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     4.534ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     0.415ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -163,7 +163,7 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 6 secs 
+Total REAL time to PAR completion: 7 secs 
 Total CPU time to PAR completion: 6 secs 
 
 Peak Memory Usage:  317 MB

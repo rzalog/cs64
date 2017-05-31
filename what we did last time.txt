@@ -1,2 +1,3 @@
-Trying to get the basics of the peripherals to work on the board.
-Trying to get testbench for "two_digit_ssd" to work.
+Getting state machine to work (only got to prompting for pass, val, rejecting bad values)
+Make the screen clear
+Try displaying bad, adding delay? (or save for later)
