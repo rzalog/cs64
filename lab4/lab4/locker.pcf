@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.68d on Mon Jun 05 11:20:32 2017
+// Written by: Map P.68d on Mon Jun 05 11:41:35 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -14,6 +14,7 @@ COMP "Row<0>" LOCATE = SITE "D12" LEVEL 1;
 COMP "Row<1>" LOCATE = SITE "C12" LEVEL 1;
 COMP "Row<2>" LOCATE = SITE "F12" LEVEL 1;
 COMP "Row<3>" LOCATE = SITE "E12" LEVEL 1;
+COMP "master_key" LOCATE = SITE "T10" LEVEL 1;
 COMP "anodes_f<0>" LOCATE = SITE "P17" LEVEL 1;
 COMP "anodes_f<1>" LOCATE = SITE "P18" LEVEL 1;
 COMP "anodes_f<2>" LOCATE = SITE "N15" LEVEL 1;

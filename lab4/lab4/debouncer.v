@@ -21,7 +21,9 @@
 module debouncer(
 		input clk,
 		input enter,
-		output reg enter_d
+		input master_key,
+		output reg enter_d,
+		output reg master_key_d
 	);
 	
 	reg [18:0] sclk;
@@ -36,6 +38,8 @@ module debouncer(
 		if (sclk == 19'b1100001101010000000) begin // 4ms
 			enter_d <= enter && ~old_enter;
 			old_enter <= enter;
+	
+			master_key_d <= master_key;
 	
 			sclk <= 0;
 		end else begin

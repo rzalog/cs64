@@ -21,6 +21,7 @@
 module main_controller(
 		input clk,
 		input enter,
+		input master_key,
 		input [3:0] first_digit,
 		input [3:0] second_digit,
 		
@@ -116,7 +117,7 @@ module main_controller(
 			disp_val <= 0;
 			
 			if (enter_pressed) begin
-				if (first_digit == first_pass_digit && second_digit == second_pass_digit) begin
+				if (master_key || (first_digit == first_pass_digit && second_digit == second_pass_digit)) begin
 					state <= 6;
 				end else begin
 					state <= 7;

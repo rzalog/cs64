@@ -23,6 +23,7 @@ module locker(
 		input [3:0] Row,
 		
 		input enter,
+		input master_key,
 		
 		output [3:0] Col,
 		output [6:0] cathodes_t,
@@ -33,6 +34,7 @@ module locker(
 	);
 	
 	wire enter_d;
+	wire master_key_d;
 		
 	wire [3:0] num_pad;
 	wire digit_changed;
@@ -51,12 +53,15 @@ module locker(
 	debouncer debouncer(
 		.clk(clk),
 		.enter(enter),
-		.enter_d(enter_d)
+		.master_key(master_key),
+		.enter_d(enter_d),
+		.master_key_d(master_key_d)
 	);
 	
 	main_controller main_controller(
 		.clk(clk),
 		.enter(enter_d),
+		.master_key(master_key_d),
 		.first_digit(first_digit),
 		.second_digit(second_digit),
 		
