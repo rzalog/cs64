@@ -3,13 +3,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: locker.prj
@@ -132,19 +132,18 @@ Elaborating module <debouncer>.
 WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\debouncer.v" Line 42: Result of 20-bit expression is truncated to fit in 19-bit target.
 
 Elaborating module <main_controller>.
-WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\main_controller.v" Line 40: Using initial value of bad_digit since it is never assigned
-WARNING:HDLCompiler:1127 - "C:\Users\152\cs64\lab4\lab4\main_controller.v" Line 49: Assignment to first_val_digit ignored, since the identifier is never used
+WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\main_controller.v" Line 43: Using initial value of bad_digit since it is never assigned
 
 Elaborating module <numpad_decoder>.
 WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\numpad_decoder.v" Line 33: Using initial value of invalid_digit since it is never assigned
 
 Elaborating module <two_digit_controller>.
-WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\two_digit_controller.v" Line 33: Using initial value of blank_digit since it is never assigned
+WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\two_digit_controller.v" Line 39: Using initial value of blank_digit since it is never assigned
 
 Elaborating module <two_digit_ssd>.
 WARNING:HDLCompiler:872 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 36: Using initial value of nothing since it is never assigned
-WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 70: Result of 21-bit expression is truncated to fit in 20-bit target.
-WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 92: Result of 21-bit expression is truncated to fit in 20-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 69: Result of 21-bit expression is truncated to fit in 20-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 91: Result of 21-bit expression is truncated to fit in 20-bit target.
 
 Elaborating module <four_digit_controller>.
 
@@ -175,22 +174,35 @@ Unit <debouncer> synthesized.
 
 Synthesizing Unit <main_controller>.
     Related source file is "C:\Users\152\cs64\lab4\lab4\main_controller.v".
+    Found 1-bit register for signal <disp_val>.
+    Found 8-bit register for signal <state>.
+    Found 4-bit register for signal <first_val_digit>.
+    Found 4-bit register for signal <second_val_digit>.
+    Found 4-bit register for signal <first_pass_digit>.
+    Found 4-bit register for signal <second_pass_digit>.
+    Found 32-bit register for signal <sclk>.
     Found 1-bit register for signal <enter_pressed>.
     Found 1-bit register for signal <old_enter>.
-    Found 8-bit register for signal <state>.
+    Found 1-bit register for signal <two_digit_clear>.
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
-    | States             | 3                                              |
-    | Transitions        | 10                                             |
-    | Inputs             | 3                                              |
-    | Outputs            | 2                                              |
+    | States             | 8                                              |
+    | Transitions        | 22                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 10                                             |
     | Clock              | clk (rising_edge)                              |
     | Power Up State     | 00000000                                       |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
+    Found 32-bit adder for signal <sclk[31]_GND_3_o_add_33_OUT> created at line 101.
+    Found 4-bit comparator equal for signal <first_digit[3]_first_pass_digit[3]_equal_43_o> created at line 119
+    Found 4-bit comparator equal for signal <second_digit[3]_second_pass_digit[3]_equal_44_o> created at line 119
     Summary:
-	inferred   2 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  52 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred  38 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <main_controller> synthesized.
 
@@ -207,11 +219,12 @@ Synthesizing Unit <numpad_decoder>.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
-	inferred  25 Multiplexer(s).
+	inferred  24 Multiplexer(s).
 Unit <numpad_decoder> synthesized.
 
 Synthesizing Unit <two_digit_controller>.
     Related source file is "C:\Users\152\cs64\lab4\lab4\two_digit_controller.v".
+WARNING:Xst:647 - Input <state> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 4-bit register for signal <second_digit>.
     Found 1-bit register for signal <old_digit_changed>.
     Found 4-bit register for signal <first_digit>.
@@ -228,7 +241,7 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <numbers
     Found 7-bit register for signal <cathodes>.
     Found 20-bit register for signal <sclk>.
     Found 1-bit register for signal <anode>.
-    Found 20-bit adder for signal <sclk[19]_GND_6_o_add_10_OUT> created at line 92.
+    Found 20-bit adder for signal <sclk[19]_GND_6_o_add_10_OUT> created at line 91.
     Summary:
 	inferred   1 RAM(s).
 	inferred   1 Adder/Subtractor(s).
@@ -238,9 +251,13 @@ Unit <two_digit_ssd> synthesized.
 
 Synthesizing Unit <four_digit_controller>.
     Related source file is "C:\Users\152\cs64\lab4\lab4\four_digit_controller.v".
+    Found 1-bit register for signal <blink>.
+    Found 32-bit register for signal <bclk>.
     Found 3-bit register for signal <to_display>.
+    Found 32-bit adder for signal <bclk[31]_GND_7_o_add_22_OUT> created at line 93.
     Summary:
-	inferred   3 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  36 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
 Unit <four_digit_controller> synthesized.
 
@@ -281,23 +298,27 @@ Macro Statistics
 # RAMs                                                 : 9
  11x7-bit dual-port Read Only RAM                      : 1
  4x7-bit single-port Read Only RAM                     : 8
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 7
  18-bit adder                                          : 1
  19-bit adder                                          : 1
  2-bit adder                                           : 1
  20-bit adder                                          : 2
-# Registers                                            : 23
- 1-bit register                                        : 10
+ 32-bit adder                                          : 2
+# Registers                                            : 32
+ 1-bit register                                        : 13
  18-bit register                                       : 1
  19-bit register                                       : 1
  2-bit register                                        : 1
  20-bit register                                       : 2
  3-bit register                                        : 1
- 4-bit register                                        : 5
+ 32-bit register                                       : 2
+ 4-bit register                                        : 9
  7-bit register                                        : 2
-# Multiplexers                                         : 29
- 1-bit 2-to-1 multiplexer                              : 14
- 3-bit 2-to-1 multiplexer                              : 1
+# Comparators                                          : 2
+ 4-bit comparator equal                                : 2
+# Multiplexers                                         : 66
+ 1-bit 2-to-1 multiplexer                              : 20
+ 32-bit 2-to-1 multiplexer                             : 32
  4-bit 2-to-1 multiplexer                              : 13
  7-bit 2-to-1 multiplexer                              : 1
 # FSMs                                                 : 1
@@ -314,6 +335,10 @@ Macro Statistics
 Synthesizing (advanced) Unit <debouncer>.
 The following registers are absorbed into counter <sclk>: 1 register on signal <sclk>.
 Unit <debouncer> synthesized (advanced).
+
+Synthesizing (advanced) Unit <four_digit_controller>.
+The following registers are absorbed into counter <bclk>: 1 register on signal <bclk>.
+Unit <four_digit_controller> synthesized (advanced).
 
 Synthesizing (advanced) Unit <four_digit_ssd>.
 The following registers are absorbed into counter <sclk>: 1 register on signal <sclk>.
@@ -441,16 +466,22 @@ Macro Statistics
 # RAMs                                                 : 9
  11x7-bit dual-port distributed Read Only RAM          : 1
  4x7-bit single-port distributed Read Only RAM         : 8
-# Counters                                             : 5
+# Adders/Subtractors                                   : 1
+ 32-bit adder                                          : 1
+# Counters                                             : 6
  18-bit up counter                                     : 1
  19-bit up counter                                     : 1
  2-bit up counter                                      : 1
  20-bit up counter                                     : 2
-# Registers                                            : 47
- Flip-Flops                                            : 47
-# Multiplexers                                         : 28
- 1-bit 2-to-1 multiplexer                              : 14
- 4-bit 2-to-1 multiplexer                              : 13
+ 32-bit up counter                                     : 1
+# Registers                                            : 98
+ Flip-Flops                                            : 98
+# Comparators                                          : 2
+ 4-bit comparator equal                                : 2
+# Multiplexers                                         : 68
+ 1-bit 2-to-1 multiplexer                              : 24
+ 32-bit 2-to-1 multiplexer                             : 31
+ 4-bit 2-to-1 multiplexer                              : 12
  7-bit 2-to-1 multiplexer                              : 1
 # FSMs                                                 : 1
 # Xors                                                 : 12
@@ -462,28 +493,49 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_0> on signal <state[1:2]> with sequential encoding.
+Optimizing FSM <main_controller/FSM_0> on signal <state[1:3]> with sequential encoding.
 ----------------------
  State    | Encoding
 ----------------------
- 00000000 | 00
- 00000010 | 01
- 00000001 | 10
+ 00000000 | 000
+ 00000111 | 001
+ 00000110 | 010
+ 00000101 | 011
+ 00000100 | 100
+ 00000011 | 101
+ 00000010 | 110
+ 00000001 | 111
 ----------------------
 
 Optimizing unit <locker> ...
 
 Optimizing unit <numpad_decoder> ...
 
+Optimizing unit <main_controller> ...
+
 Optimizing unit <two_digit_controller> ...
 
 Optimizing unit <two_digit_ssd> ...
 
+Optimizing unit <four_digit_controller> ...
+
 Optimizing unit <four_digit_ssd> ...
+WARNING:Xst:1710 - FF/Latch <main_controller/sclk_31> (without init value) has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <main_controller/sclk_30> (without init value) has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <main_controller/sclk_29> (without init value) has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <main_controller/sclk_28> (without init value) has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <main_controller/sclk_27> (without init value) has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <four_digit_controller/bclk_31> has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <four_digit_controller/bclk_30> has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <four_digit_controller/bclk_29> has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <four_digit_controller/bclk_28> has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <four_digit_controller/bclk_27> has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <four_digit_controller/bclk_26> has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <four_digit_controller/bclk_25> has a constant value of 0 in block <locker>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block locker, actual ratio is 2.
+Found area constraint ratio of 100 (+ 5) on block locker, actual ratio is 4.
 
 Final Macro Processing ...
 
@@ -491,8 +543,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 128
- Flip-Flops                                            : 128
+# Registers                                            : 200
+ Flip-Flops                                            : 200
 
 =========================================================================
 
@@ -515,24 +567,25 @@ Top Level Output File Name         : locker.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 382
+# BELS                             : 625
 #      GND                         : 1
-#      INV                         : 6
-#      LUT1                        : 73
-#      LUT2                        : 9
-#      LUT3                        : 40
-#      LUT4                        : 26
-#      LUT5                        : 14
-#      LUT6                        : 62
-#      MUXCY                       : 73
+#      INV                         : 8
+#      LUT1                        : 123
+#      LUT2                        : 5
+#      LUT3                        : 46
+#      LUT4                        : 23
+#      LUT5                        : 71
+#      LUT6                        : 93
+#      MUXCY                       : 123
+#      MUXF7                       : 2
 #      VCC                         : 1
-#      XORCY                       : 77
-# FlipFlops/Latches                : 128
-#      FD                          : 50
-#      FDE                         : 30
+#      XORCY                       : 129
+# FlipFlops/Latches                : 200
+#      FD                          : 81
+#      FDE                         : 67
 #      FDR                         : 37
-#      FDRE                        : 9
-#      FDSE                        : 2
+#      FDRE                        : 11
+#      FDSE                        : 4
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 28
@@ -546,16 +599,16 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             128  out of  18224     0%  
- Number of Slice LUTs:                  230  out of   9112     2%  
-    Number used as Logic:               230  out of   9112     2%  
+ Number of Slice Registers:             200  out of  18224     1%  
+ Number of Slice LUTs:                  369  out of   9112     4%  
+    Number used as Logic:               369  out of   9112     4%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    235
-   Number with an unused Flip Flop:     107  out of    235    45%  
-   Number with an unused LUT:             5  out of    235     2%  
-   Number of fully used LUT-FF pairs:   123  out of    235    52%  
-   Number of unique control sets:        10
+ Number of LUT Flip Flop pairs used:    387
+   Number with an unused Flip Flop:     187  out of    387    48%  
+   Number with an unused LUT:            18  out of    387     4%  
+   Number of fully used LUT-FF pairs:   182  out of    387    47%  
+   Number of unique control sets:        14
 
 IO Utilization: 
  Number of IOs:                          29
@@ -585,7 +638,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 128   |
+clk                                | BUFGP                  | 200   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -596,8 +649,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 5.593ns (Maximum Frequency: 178.787MHz)
-   Minimum input arrival time before clock: 4.993ns
+   Minimum period: 5.053ns (Maximum Frequency: 197.900MHz)
+   Minimum input arrival time before clock: 4.754ns
    Maximum output required time after clock: 3.634ns
    Maximum combinational path delay: No path found
 
@@ -607,34 +660,34 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 5.593ns (frequency: 178.787MHz)
-  Total number of paths / destination ports: 6581 / 216
+  Clock period: 5.053ns (frequency: 197.900MHz)
+  Total number of paths / destination ports: 10311 / 328
 -------------------------------------------------------------------------
-Delay:               5.593ns (Levels of Logic = 4)
-  Source:            numpad_decoder/sclk_17 (FF)
-  Destination:       numpad_decoder/Col_3 (FF)
+Delay:               5.053ns (Levels of Logic = 4)
+  Source:            two_digit_controller/first_digit_1 (FF)
+  Destination:       main_controller/sclk_26 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: numpad_decoder/sclk_17 to numpad_decoder/Col_3
+  Data Path: two_digit_controller/first_digit_1 to main_controller/sclk_26
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               3   0.447   0.898  numpad_decoder/sclk_17 (numpad_decoder/sclk_17)
-     LUT4:I0->O            3   0.203   0.879  numpad_decoder/sclk[19]_GND_4_o_equal_14_o<19>221 (numpad_decoder/sclk[19]_GND_4_o_equal_14_o<19>22)
-     LUT6:I3->O           32   0.205   1.539  numpad_decoder/sclk[19]_GND_4_o_equal_14_o<19>23 (numpad_decoder/sclk[19]_GND_4_o_equal_14_o<19>2)
-     LUT4:I0->O            4   0.203   0.912  numpad_decoder/_n0309_inv1_rstpot (numpad_decoder/_n0309_inv1_rstpot)
-     LUT3:I0->O            1   0.205   0.000  numpad_decoder/Col_0_dpot (numpad_decoder/Col_0_dpot)
-     FDE:D                     0.102          numpad_decoder/Col_0
+     FDSE:C->Q            13   0.447   1.037  two_digit_controller/first_digit_1 (two_digit_controller/first_digit_1)
+     LUT4:I2->O            2   0.203   0.845  main_controller/first_digit[3]_first_pass_digit[3]_equal_43_o4_SW0 (N29)
+     LUT6:I3->O            2   0.205   0.845  main_controller/_n0501_inv_SW0 (N25)
+     LUT6:I3->O           14   0.205   0.958  main_controller/_n0501_inv (main_controller/_n0501_inv)
+     LUT5:I4->O            1   0.205   0.000  main_controller/sclk_26_rstpot (main_controller/sclk_26_rstpot)
+     FD:D                      0.102          main_controller/sclk_26
     ----------------------------------------
-    Total                      5.593ns (1.365ns logic, 4.228ns route)
-                                       (24.4% logic, 75.6% route)
+    Total                      5.053ns (1.367ns logic, 3.686ns route)
+                                       (27.1% logic, 72.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 106 / 17
+  Total number of paths / destination ports: 68 / 10
 -------------------------------------------------------------------------
-Offset:              4.993ns (Levels of Logic = 4)
+Offset:              4.754ns (Levels of Logic = 4)
   Source:            Row<1> (PAD)
   Destination:       numpad_decoder/row_did_not_change_2 (FF)
   Destination Clock: clk rising
@@ -643,14 +696,14 @@ Offset:              4.993ns (Levels of Logic = 4)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            16   1.222   1.252  Row_1_IBUF (Row_1_IBUF)
-     LUT4:I0->O            2   0.203   0.981  numpad_decoder/PWR_4_o_GND_4_o_MUX_40_o1 (numpad_decoder/PWR_4_o_GND_4_o_MUX_40_o)
-     LUT6:I0->O            1   0.203   0.827  numpad_decoder/_n0258_inv2_SW0 (N50)
-     LUT6:I2->O            1   0.203   0.000  numpad_decoder/row_did_not_change_2_rstpot (numpad_decoder/row_did_not_change_2_rstpot)
+     IBUF:I->O            12   1.222   1.156  Row_1_IBUF (Row_1_IBUF)
+     LUT4:I0->O            2   0.203   0.981  numpad_decoder/PWR_4_o_GND_4_o_MUX_90_o1 (numpad_decoder/PWR_4_o_GND_4_o_MUX_90_o)
+     LUT6:I0->O            1   0.203   0.684  numpad_decoder/row_did_not_change_2_dpot (numpad_decoder/row_did_not_change_2_dpot)
+     LUT3:I1->O            1   0.203   0.000  numpad_decoder/row_did_not_change_2_rstpot (numpad_decoder/row_did_not_change_2_rstpot)
      FD:D                      0.102          numpad_decoder/row_did_not_change_2
     ----------------------------------------
-    Total                      4.993ns (1.933ns logic, 3.060ns route)
-                                       (38.7% logic, 61.3% route)
+    Total                      4.754ns (1.933ns logic, 2.821ns route)
+                                       (40.7% logic, 59.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -665,7 +718,7 @@ Offset:              3.634ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              2   0.447   0.616  numpad_decoder/Col_3 (numpad_decoder/Col_3)
+     FD:C->Q               2   0.447   0.616  numpad_decoder/Col_3 (numpad_decoder/Col_3)
      OBUF:I->O                 2.571          Col_3_OBUF (Col<3>)
     ----------------------------------------
     Total                      3.634ns (3.018ns logic, 0.616ns route)
@@ -681,20 +734,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    5.593|         |         |         |
+clk            |    5.053|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.83 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.53 secs
  
 --> 
 
-Total memory usage is 259152 kilobytes
+Total memory usage is 260368 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   20 (   0 filtered)
+Number of warnings :   32 (   0 filtered)
 Number of infos    :    9 (   0 filtered)
 

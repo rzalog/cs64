@@ -52,9 +52,8 @@ module two_digit_ssd(
 	end
 	
 	always @(posedge clk) begin
-		// 4ms
 		if(
-			sclk == 20'b01100001101010000000
+			sclk == 20'b01100001101010000000 // 4 ms
 			) 
 		begin
 			// First digit

@@ -42,6 +42,12 @@ module locker(
 	wire [3:0] first_digit;
 	wire [3:0] second_digit;
 
+	wire two_digit_clear;
+
+	wire [3:0] first_val_digit;
+	wire [3:0] second_val_digit;
+	wire disp_val;
+
 	debouncer debouncer(
 		.clk(clk),
 		.enter(enter),
@@ -51,10 +57,14 @@ module locker(
 	main_controller main_controller(
 		.clk(clk),
 		.enter(enter_d),
-		.state(state),
-		
 		.first_digit(first_digit),
-		.second_digit(second_digit)
+		.second_digit(second_digit),
+		
+		.state(state),
+		.two_digit_clear(two_digit_clear),
+		.first_val_digit(first_val_digit),
+		.second_val_digit(second_val_digit),
+		.disp_val(disp_val)
 	);
 
 	numpad_decoder numpad_decoder(
@@ -69,7 +79,13 @@ module locker(
 		.clk(clk),
 		.digit_changed(digit_changed),
 		.number_input(num_pad),
+		
 		.state(state),
+		.two_digit_clear(two_digit_clear),
+		.first_val_digit(first_val_digit),
+		.second_val_digit(second_val_digit),
+		.disp_val(disp_val),
+		
 		.first_digit(first_digit),
 		.second_digit(second_digit)
 	);

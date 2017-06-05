@@ -56,10 +56,10 @@ module four_digit_ssd(
 		words_to_display[2][2] = 7'b1110111; //A
 		words_to_display[2][3] = 7'b1100111; //P
 		
-		// NEW
-		words_to_display[3][0] = 7'b0111110; //W
-		words_to_display[3][1] = 7'b1001111; //E
-		words_to_display[3][2] = 7'b1110110; //N
+		// BAD
+		words_to_display[3][0] = 7'b1111110; //D
+		words_to_display[3][1] = 7'b1110111; //A
+		words_to_display[3][2] = 7'b1111111; //B
 		words_to_display[3][3] = nothing;
 		
 		// OPEN

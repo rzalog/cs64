@@ -8,31 +8,31 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\152\cs64\lab4\lab4\debouncer.v" Line 42: Result of <arg fmt="%d" index="1">20</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">19</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\152\cs64\lab4\lab4\main_controller.v" Line 40: Using initial value of <arg fmt="%s" index="1">bad_digit</arg> since it is never assigned
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\152\cs64\lab4\lab4\main_controller.v" Line 49: Assignment to <arg fmt="%s" index="1">first_val_digit</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\152\cs64\lab4\lab4\main_controller.v" Line 43: Using initial value of <arg fmt="%s" index="1">bad_digit</arg> since it is never assigned
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\152\cs64\lab4\lab4\numpad_decoder.v" Line 33: Using initial value of <arg fmt="%s" index="1">invalid_digit</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\152\cs64\lab4\lab4\two_digit_controller.v" Line 33: Using initial value of <arg fmt="%s" index="1">blank_digit</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\152\cs64\lab4\lab4\two_digit_controller.v" Line 39: Using initial value of <arg fmt="%s" index="1">blank_digit</arg> since it is never assigned
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="872" delta="old" >"C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 36: Using initial value of <arg fmt="%s" index="1">nothing</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 70: Result of <arg fmt="%d" index="1">21</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">20</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 69: Result of <arg fmt="%d" index="1">21</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">20</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 92: Result of <arg fmt="%d" index="1">21</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">20</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\152\cs64\lab4\lab4\two_digit_ssd.v" Line 91: Result of <arg fmt="%d" index="1">21</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">20</arg>-bit target.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\152\cs64\lab4\lab4\four_digit_ssd.v" Line 89: Result of <arg fmt="%d" index="1">3</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">2</arg>-bit target.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\152\cs64\lab4\lab4\four_digit_ssd.v" Line 92: Result of <arg fmt="%d" index="1">19</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">18</arg>-bit target.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">state</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="2999" delta="old" >Signal &apos;<arg fmt="%s" index="1">numbers</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">two_digit_ssd</arg>&apos;, is tied to its initial value.
@@ -90,6 +90,42 @@
 </msg>
 
 <msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_numbers</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">main_controller/sclk_31</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">main_controller/sclk_30</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">main_controller/sclk_29</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">main_controller/sclk_28</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">main_controller/sclk_27</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">four_digit_controller/bclk_31</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">four_digit_controller/bclk_30</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">four_digit_controller/bclk_29</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">four_digit_controller/bclk_28</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">four_digit_controller/bclk_27</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">four_digit_controller/bclk_26</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">four_digit_controller/bclk_25</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">locker</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 </messages>

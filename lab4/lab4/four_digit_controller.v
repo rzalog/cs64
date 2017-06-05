@@ -24,13 +24,65 @@ module four_digit_controller(
 		output reg [2:0] to_display
 	);
 
+	reg [31:0] bclk;
+	
+	reg blink;
+	
+	initial begin
+		bclk <= 0;
+		blink <= 0;
+	end
+
 	always @(posedge clk) begin
 		if (state == 0) begin
 			to_display <= 4; // OPEN
 		end else if (state == 1) begin
-			to_display <= 1; // VAL
+			if (blink) begin
+				to_display <= 6; // NOTHING
+			end else begin
+				to_display <= 1; // VAL
+			end
+			
+			if (bclk == 32'd25000000) begin
+				blink <= ~blink;
+				bclk <= 0;
+			end else begin
+				bclk <= bclk + 1;
+			end
 		end else if (state == 2) begin
-			to_display <= 2; //PASS
+			if (blink) begin
+				to_display <= 6; // NOTHING
+			end else begin
+				to_display <= 2; // PASS
+			end
+			
+			if (bclk == 32'd25000000) begin
+				blink <= ~blink;
+				bclk <= 0;
+			end else begin
+				bclk <= bclk + 1;
+			end
+		end else if (state == 3) begin
+			to_display <= 0; // YES
+		end else if (state == 4) begin
+			to_display <= 5; // LOCK
+		end else if (state == 5) begin
+			if (blink) begin
+				to_display <= 6; // NOTHING
+			end else begin
+				to_display <= 2; // PASS
+			end
+			
+			if (bclk == 32'd25000000) begin
+				blink <= ~blink;
+				bclk <= 0;
+			end else begin
+				bclk <= bclk + 1;
+			end
+		end else if (state == 6) begin
+			to_display <= 1; // VAL
+		end else if (state == 7) begin
+			to_display <= 3; // BAD
 		end
 	end
 
