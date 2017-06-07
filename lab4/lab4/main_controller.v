@@ -132,10 +132,8 @@ module main_controller(
 			two_digit_clear <= 0;
 			disp_val <= 1;
 			
-			if (sclk == 32'd100000000) begin
+			if (enter_pressed) begin
 				state <= 0;
-			end else begin
-				sclk <= sclk + 1;
 			end
 		end
 		

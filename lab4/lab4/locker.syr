@@ -10,7 +10,7 @@ Total CPU time to Xst completion: 0.11 secs
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: locker.prj
 
@@ -190,7 +190,7 @@ Synthesizing Unit <main_controller>.
     | States             | 8                                              |
     | Transitions        | 21                                             |
     | Inputs             | 6                                              |
-    | Outputs            | 10                                             |
+    | Outputs            | 9                                              |
     | Clock              | clk (rising_edge)                              |
     | Power Up State     | 00000000                                       |
     | Encoding           | auto                                           |
@@ -203,7 +203,7 @@ Synthesizing Unit <main_controller>.
 	inferred   1 Adder/Subtractor(s).
 	inferred  52 D-type flip-flop(s).
 	inferred   2 Comparator(s).
-	inferred  38 Multiplexer(s).
+	inferred  22 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <main_controller> synthesized.
 
@@ -317,9 +317,9 @@ Macro Statistics
  7-bit register                                        : 2
 # Comparators                                          : 2
  4-bit comparator equal                                : 2
-# Multiplexers                                         : 66
+# Multiplexers                                         : 50
  1-bit 2-to-1 multiplexer                              : 20
- 32-bit 2-to-1 multiplexer                             : 32
+ 32-bit 2-to-1 multiplexer                             : 16
  4-bit 2-to-1 multiplexer                              : 13
  7-bit 2-to-1 multiplexer                              : 1
 # FSMs                                                 : 1
@@ -479,9 +479,9 @@ Macro Statistics
  Flip-Flops                                            : 99
 # Comparators                                          : 2
  4-bit comparator equal                                : 2
-# Multiplexers                                         : 68
+# Multiplexers                                         : 52
  1-bit 2-to-1 multiplexer                              : 24
- 32-bit 2-to-1 multiplexer                             : 31
+ 32-bit 2-to-1 multiplexer                             : 15
  4-bit 2-to-1 multiplexer                              : 12
  7-bit 2-to-1 multiplexer                              : 1
 # FSMs                                                 : 1
@@ -563,22 +563,21 @@ Top Level Output File Name         : locker.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 623
+# BELS                             : 632
 #      GND                         : 1
-#      INV                         : 7
+#      INV                         : 8
 #      LUT1                        : 128
-#      LUT2                        : 5
-#      LUT3                        : 19
-#      LUT4                        : 51
-#      LUT5                        : 51
-#      LUT6                        : 90
+#      LUT2                        : 37
+#      LUT3                        : 24
+#      LUT4                        : 32
+#      LUT5                        : 42
+#      LUT6                        : 97
 #      MUXCY                       : 128
-#      MUXF7                       : 8
 #      VCC                         : 1
 #      XORCY                       : 134
 # FlipFlops/Latches                : 206
-#      FD                          : 73
-#      FDE                         : 68
+#      FD                          : 41
+#      FDE                         : 100
 #      FDR                         : 57
 #      FDRE                        : 4
 #      FDSE                        : 4
@@ -596,15 +595,15 @@ Selected Device : 6slx16csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:             206  out of  18224     1%  
- Number of Slice LUTs:                  351  out of   9112     3%  
-    Number used as Logic:               351  out of   9112     3%  
+ Number of Slice LUTs:                  368  out of   9112     4%  
+    Number used as Logic:               368  out of   9112     4%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    371
-   Number with an unused Flip Flop:     165  out of    371    44%  
-   Number with an unused LUT:            20  out of    371     5%  
-   Number of fully used LUT-FF pairs:   186  out of    371    50%  
-   Number of unique control sets:        13
+ Number of LUT Flip Flop pairs used:    386
+   Number with an unused Flip Flop:     180  out of    386    46%  
+   Number with an unused LUT:            18  out of    386     4%  
+   Number of fully used LUT-FF pairs:   188  out of    386    48%  
+   Number of unique control sets:        15
 
 IO Utilization: 
  Number of IOs:                          30
@@ -645,8 +644,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 5.726ns (Maximum Frequency: 174.631MHz)
-   Minimum input arrival time before clock: 4.707ns
+   Minimum period: 5.410ns (Maximum Frequency: 184.826MHz)
+   Minimum input arrival time before clock: 4.805ns
    Maximum output required time after clock: 3.634ns
    Maximum combinational path delay: No path found
 
@@ -656,35 +655,33 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 5.726ns (frequency: 174.631MHz)
-  Total number of paths / destination ports: 11770 / 340
+  Clock period: 5.410ns (frequency: 184.826MHz)
+  Total number of paths / destination ports: 11741 / 372
 -------------------------------------------------------------------------
-Delay:               5.726ns (Levels of Logic = 5)
-  Source:            two_digit_controller/first_digit_0 (FF)
+Delay:               5.410ns (Levels of Logic = 3)
+  Source:            two_digit_controller/first_digit_2 (FF)
   Destination:       main_controller/sclk_31 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: two_digit_controller/first_digit_0 to main_controller/sclk_31
+  Data Path: two_digit_controller/first_digit_2 to main_controller/sclk_31
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            12   0.447   1.013  two_digit_controller/first_digit_0 (two_digit_controller/first_digit_0)
-     LUT4:I2->O            2   0.203   0.845  main_controller/master_key_first_digit[3]_OR_56_o2 (main_controller/master_key_first_digit[3]_OR_56_o2)
-     LUT4:I1->O            3   0.205   0.651  main_controller/master_key_first_digit[3]_OR_56_o4 (main_controller/master_key_first_digit[3]_OR_56_o)
-     LUT6:I5->O            2   0.205   0.617  main_controller/_n0503_inv1 (main_controller/_n0503_inv1)
-     LUT6:I5->O           17   0.205   1.028  main_controller/_n0503_inv2 (main_controller/_n0503_inv)
-     LUT4:I3->O            1   0.205   0.000  main_controller/sclk_31_rstpot (main_controller/sclk_31_rstpot)
-     FD:D                      0.102          main_controller/sclk_31
+     FDRE:C->Q            12   0.447   1.156  two_digit_controller/first_digit_2 (two_digit_controller/first_digit_2)
+     LUT4:I0->O            7   0.203   0.774  main_controller/n0006<3>1 (main_controller/n0006)
+     LUT6:I5->O            1   0.205   0.808  main_controller/_n0351_inv_SW0 (N19)
+     LUT6:I3->O           32   0.205   1.291  main_controller/_n0351_inv (main_controller/_n0351_inv)
+     FDE:CE                    0.322          main_controller/sclk_0
     ----------------------------------------
-    Total                      5.726ns (1.572ns logic, 4.154ns route)
-                                       (27.5% logic, 72.5% route)
+    Total                      5.410ns (1.382ns logic, 4.028ns route)
+                                       (25.5% logic, 74.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 66 / 14
+  Total number of paths / destination ports: 69 / 11
 -------------------------------------------------------------------------
-Offset:              4.707ns (Levels of Logic = 3)
+Offset:              4.805ns (Levels of Logic = 4)
   Source:            Row<3> (PAD)
   Destination:       numpad_decoder/DecodeOut_3 (FF)
   Destination Clock: clk rising
@@ -693,13 +690,14 @@ Offset:              4.707ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            11   1.222   1.130  Row_3_IBUF (Row_3_IBUF)
-     LUT4:I0->O            1   0.203   0.944  numpad_decoder/_n0284_inv_SW0 (N15)
-     LUT6:I0->O            4   0.203   0.683  numpad_decoder/_n0284_inv (numpad_decoder/_n0284_inv)
-     FDE:CE                    0.322          numpad_decoder/DecodeOut_0
+     IBUF:I->O            12   1.222   1.156  Row_3_IBUF (Row_3_IBUF)
+     LUT4:I0->O            2   0.203   0.961  numpad_decoder/_n0284_inv_SW0 (N15)
+     LUT5:I0->O            3   0.203   0.755  numpad_decoder/_n0284_inv_rstpot (numpad_decoder/_n0284_inv_rstpot)
+     LUT3:I1->O            1   0.203   0.000  numpad_decoder/DecodeOut_3_dpot (numpad_decoder/DecodeOut_3_dpot)
+     FDE:D                     0.102          numpad_decoder/DecodeOut_3
     ----------------------------------------
-    Total                      4.707ns (1.950ns logic, 2.757ns route)
-                                       (41.4% logic, 58.6% route)
+    Total                      4.805ns (1.933ns logic, 2.872ns route)
+                                       (40.2% logic, 59.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -730,18 +728,18 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    5.726|         |         |         |
+clk            |    5.410|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 10.89 secs
+Total CPU time to Xst completion: 10.83 secs
  
 --> 
 
-Total memory usage is 259984 kilobytes
+Total memory usage is 260176 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   27 (   0 filtered)

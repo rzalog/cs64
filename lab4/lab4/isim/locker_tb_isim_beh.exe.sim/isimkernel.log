@@ -1,0 +1,28 @@
+Command line:
+   locker_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  54221
+
+Wed Jun 07 10:19:20 2017
+
+
+ Elaboration Time: 0.0624 sec
+
+ Current Memory Usage: 828.289 Meg
+
+ Total Signals          : 64
+ Total Nets             : 79
+ Total Signal Drivers   : 26
+ Total Blocks           : 10
+ Total Primitive Blocks : 8
+ Total Processes        : 43
+ Total Traceable Variables  : 61
+ Total Scalar Nets and Variables : 712
+
+ Total Simulation Time: 2.90162 sec
+
+ Current Memory Usage: 671.003 Meg
+
+Wed Jun 07 11:47:13 2017
+
