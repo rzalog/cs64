@@ -1,0 +1,28 @@
+Command line:
+   two_digit_controller_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  50805
+
+Fri Jun 09 12:47:37 2017
+
+
+ Elaboration Time: 0.0312 sec
+
+ Current Memory Usage: 828.256 Meg
+
+ Total Signals          : 23
+ Total Nets             : 45
+ Total Signal Drivers   : 15
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 20
+ Total Traceable Variables  : 30
+ Total Scalar Nets and Variables : 162
+
+ Total Simulation Time: 0.0312 sec
+
+ Current Memory Usage: 1142.83 Meg
+
+Fri Jun 09 12:49:07 2017
+

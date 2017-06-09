@@ -26,11 +26,16 @@ module four_digit_controller(
 
 	reg [31:0] bclk;
 	
+	reg [31:0] blink_delay;
+	
 	reg blink;
 	
 	initial begin
 		bclk <= 0;
 		blink <= 0;
+		
+		blink_delay = 32'd25000000;
+		//blink_delay = 32'b10;
 	end
 
 	always @(posedge clk) begin
@@ -43,7 +48,7 @@ module four_digit_controller(
 				to_display <= 1; // VAL
 			end
 			
-			if (bclk == 32'd25000000) begin
+			if (bclk == blink_delay) begin
 				blink <= ~blink;
 				bclk <= 0;
 			end else begin
@@ -56,7 +61,7 @@ module four_digit_controller(
 				to_display <= 2; // PASS
 			end
 			
-			if (bclk == 32'd25000000) begin
+			if (bclk == blink_delay) begin
 				blink <= ~blink;
 				bclk <= 0;
 			end else begin
@@ -73,7 +78,7 @@ module four_digit_controller(
 				to_display <= 2; // PASS
 			end
 			
-			if (bclk == 32'd25000000) begin
+			if (bclk == blink_delay) begin
 				blink <= ~blink;
 				bclk <= 0;
 			end else begin

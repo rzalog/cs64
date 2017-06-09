@@ -1,5 +1,5 @@
 ISim log file
-Running: C:\Users\152\cs64\lab4\lab4\locker_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/152/cs64/lab4/lab4/locker_tb_isim_beh.wdb 
+Running: C:\Users\152\cs64\lab4\lab4\four_digit_controller_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/152/cs64/lab4/lab4/four_digit_controller_tb_isim_beh.wdb 
 ISim P.68d (signature 0x7708f090)
 ----------------------------------------------------------------------
 WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
@@ -13,5 +13,4 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# run all
-Stopped at time : 1780782 ns : File "C:/Users/152/cs64/lab4/lab4/four_digit_ssd.v" Line 84
+Stopped at time : 145 ns : File "C:/Users/152/cs64/lab4/lab4/four_digit_controller_tb.v" Line 69

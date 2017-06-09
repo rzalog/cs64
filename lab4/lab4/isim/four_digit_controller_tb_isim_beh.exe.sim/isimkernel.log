@@ -1,0 +1,28 @@
+Command line:
+   four_digit_controller_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  50828
+
+Fri Jun 09 12:51:39 2017
+
+
+ Elaboration Time: 0.0624 sec
+
+ Current Memory Usage: 828.26 Meg
+
+ Total Signals          : 16
+ Total Nets             : 25
+ Total Signal Drivers   : 8
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 13
+ Total Traceable Variables  : 24
+ Total Scalar Nets and Variables : 182
+
+ Total Simulation Time: 0.078 sec
+
+ Current Memory Usage: 828.26 Meg
+
+Fri Jun 09 12:53:50 2017
+

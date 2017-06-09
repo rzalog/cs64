@@ -41,6 +41,8 @@ module main_controller(
 	
 	reg [31:0] sclk;
 	
+	reg [31:0] delay;
+	
 	initial begin
 		old_enter = 0;
 		enter_pressed = 0;
@@ -49,6 +51,8 @@ module main_controller(
 		
 		state = 0;
 		two_digit_clear = 0;
+		
+		delay = 32'b100000000;
 	end
 	
 	always @(posedge clk) begin		
@@ -95,7 +99,7 @@ module main_controller(
 			disp_val <= 0;
 			
 			// A good amount of seconds
-			if (sclk == 32'd100000000) begin
+			if (sclk == delay) begin
 				state <= 4;
 				sclk <= 0;
 			end else begin
@@ -141,7 +145,7 @@ module main_controller(
 			two_digit_clear <= 1;
 			disp_val <= 0;
 			
-			if (sclk == 32'd200000000) begin
+			if (sclk == delay) begin
 				state <= 4;
 			end else begin
 				sclk <= sclk + 1;

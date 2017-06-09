@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/152/cs64/lab4/lab4/locker_tb_isim_beh.exe" -prj "C:/Users/152/cs64/lab4/lab4/locker_tb_beh.prj" "work.locker_tb" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/152/cs64/lab4/lab4/four_digit_controller_tb_isim_beh.exe" -prj "C:/Users/152/cs64/lab4/lab4/four_digit_controller_tb_beh.prj" "work.four_digit_controller_tb" "work.glbl" 
